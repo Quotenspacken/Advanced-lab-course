@@ -1,0 +1,84 @@
+\documentclass[
+  bibliography=totoc,     % Literatur im Inhaltsverzeichnis
+  captions=tableheading,  % Tabellenüberschriften
+  titlepage=firstiscover, % Titelseite ist Deckblatt
+]{scrartcl}
+
+% Language and Encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+%Font
+\usepackage{newtxtext,newtxmath}
+
+% Figures, Graphics, and Tables
+\usepackage[pdftex,dvipsnames,table]{xcolor}
+\usepackage[pdftex]{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% Math
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{xfrac}
+\usepackage[inference]{semantic}
+\usepackage{witharrows}
+\usepackage[amsmath,thmmarks,hyperref]{ntheorem}
+
+% Miscellaneous
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{xurl}
+\usepackage{setspace}
+\usepackage{mdframed}
+\usepackage{bbding}
+
+% Bibliography and Glossary
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\usepackage{glossaries}
+
+\usepackage{pdfpages}
+
+% Physical Units and Numbers
+\usepackage[locale=DE]{siunitx}
+
+% References
+\usepackage{hyperref}
+
+%Titelseite
+\author{%
+  Philip Jaletzky\\%
+  \href{mailto:philip.jaletzky@tu-dortmund.de}{philip.jaletzky@tu-dortmund.de}%
+  \and%
+  Sebastian Rüßmann\\%
+  \href{mailto:sebastian.ruessmann@tu-dortmund.de}{sebastian.ruessmann@tu-dortmund.de}%
+}
+\publishers{TU Dortmund – Fakultät Physik}
+
+\subject{V29}
+\title{Quantum Cryptography with BB84 and Decoy States}
+\date{%
+  Durchführung: 27. Oktober 2025
+  \hspace{3em}
+  Abgabe: \today
+}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\input{content/1.theorie.tex}
+\input{content/2.durchfuehrung.tex}
+\input{content/3.auswertung.tex}
+\input{content/4.diskussion.tex}
+\newpage
+%\input{content/anhang.tex}
+\newpage
+\printbibliography{}
+
+
+\end{document}

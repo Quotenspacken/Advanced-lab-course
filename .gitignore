@@ -1,0 +1,34 @@
+# LaTeX build files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+
+# Output files
+*.pdf
+*.dvi
+*.ps
+
+# Editor/IDE-specific
+*.swp
+*.bak
+*.tmp
+*.DS_Store
+*.idea/
+.vscode/
+
+# Latex build directories
+_build/
+build/
+latex.out/
