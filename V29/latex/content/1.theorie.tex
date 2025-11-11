@@ -1,3 +1,53 @@
 \section{Theory}
 
-Hi
+In this section the theoretical fundamentals of quantum cryptography with the BB84 protocol and its extension with decoy states will be described. Also the basics of the photon number splitting attack as the reason for the decoy state extension will be explained.
+
+\subsection{BB84 protocol}
+The central idea of the quantum key distribution (QKD) method is that two persons, called typically Alice and Bob, communicate with each other through information encoded in the polarization states of single photons. Another important part of the experiment is the detection of a potential eavesdropper, who is traditionally called Eve. The BB84 protocol is built on two fundamental ideas from quantum physics: the polarization of the electric field and the no-cloning theorem. \newline
+In BB84, information is encoded using two different polarization bases:
+
+\begin{itemize}
+	\item The rectilinear (+) basis, which includes horizontal 0° and vertical 90° polarizations.  
+	\item The diagonal (x) basis, which includes –45° and +45° polarizations.
+\end{itemize}
+\noindent
+In both of these bases each polarization represents one binary value. One polarization corresponds to a binary 0, the other to a binary 1.  \newline
+The standard BB84 protocol proceeds through the following steps:
+
+\begin{enumerate}
+	\item Encoding: Alice creates a random bit sequence and randomly selects one of the two bases (+ or x) for each bit. She encodes each bit into a photons polarization according to her chosen basis and sends these photons to Bob.
+	\item Measurement: Bob measures the incoming photons using for each one his own randomly selected basis (+ or x).
+	\item Basis Comparison: Alice and Bob share with each other which bases they used for each photon but not their actual bit values. They discard all measurements where their bases differ and keep only the measurements where their bases match.
+	\item Error Checking: To detect any eavesdropper, Alice and Bob compare a small set of their remaining bits. If Eve attempted to intercept photons, she would have had only a 50$\%$ chance of guessing the correct basis, causing about 25$\%$ errors in this test subset revealing her interference.
+\end{enumerate}
+\\
+If no signs of eavesdropping are found, Alice and Bob use the remaining shared bits as their secret key for encryption of their message via a one-time pad.
+
+\subsection{Photon number splitting (PNS) attack}
+In reality it is technically very difficult to create perfect single photon sources. Eavesdroppers can exploit this fact by taking one photon from several out of a laser pulse, which is used for communication. These kinds of attacks are also called Photon Number Splitting (PNS) Attacks. 
+\noindent
+Performing a photon number splitting attack means that Eve intercepts the light pulses sent from Alice to Bob and performs a special quantum non-demolition measurement to count how many photons are in each pulse without changing their quantum state.
+If Eve finds that a pulse contains only one photon, she blocks it entirely so that it appears as normal transmission loss to Alice and Bob. But if the pulse has two or more photons, she splits off one photon for herself and allows the remaining ones to continue to Bob. By keeping one of these extra photons, Eve can later measure its polarization and learn the corresponding bit value without disturbing the photons reaching Bob and therefore without being detected.\\
+Practically this means, that photon number splitting attacks decrease the security level of quantum key distribution methods, which are based on weak laser sources instead of perfect single photon emitters.
+
+\subsection{Decoy state method}
+The Decoy state method is an extension to the BB84 protocol and a way to defend against photon number splitting attacks. Using the decoy state method means that Alice randomly sends laser pulses with different intensities, which means that these laser pulses have a different average number of photons. Some of these laser pulses are strong pulses, some are weak pulses and some are completely empty. \newline
+So you get the following three types of states:
+
+\begin{itemize}
+	\item Signal states: Stronger pulses used for actual key generation with higher average photon number ($\mu$).
+	\item Decoy states: Weaker pulses used for detecting attacks with lower average photon number ($\nu$).
+	\item Vacuum states: No photons at all for measuring the background noise and dark counts.
+\end{itemize}
+\noindent
+A potential eavesdropper could not distinguish these pulses except by their intensities because they share the same polarization properties. Here Bob also randomly picks his own measurement basis for each received pulse and records whether a photon was detected along with the corresponding basis used. After exchanging a high number of pulses, Alice and Bob exchange information about their measurements. Alice reveals her chosen bases and for each pulse whether it was a signal, decoy, or vacuum state and Bob reveals for which pulses he detected a photon and which basis he used. They sort out all cases where their bases differ and sort the remaining cases into separate datasets for signal states, decoy states and vacuum states.
+\noindent
+From these three datasets Alice and Bob then calculate two important quantities:
+\begin{itemize}
+	\item The Gains $(Q_\mu, Q_\nu, Q_{\text{vac}}​)$: The number of detected photons divided by the total number of pulses sent for each state.
+	\item The quantum bit error rates (QBER) $(E_\mu, E_\nu, E_{\text{vac}}​)$: The fraction of detected bits that were measured incorrectly for each state. 
+\end{itemize}
+\noindent
+Using these results Alice and Bob can estimate the yield ($Y_{n}$​) and the error rate ($e_{n}$​) for n-photon pulses. The yield is the probability that Bob detects an n-photon pulse and the error rate is the probability that this detection gives an incorrect bit value. With these results Alice and Bob can calculate, using Poisson statistics and linear equations, a lower bound on the single photon yield ($Y_{1}$​) and an upper bound on its error rate ($e_{1}$​). With these estimates for single-photon yields and errors Alice and Bob determine a secure key rate, representing how much of their sifted key can be seen as secure against eavesdropping. These information makes it possible to post process the bits received from single photon events in a way that makes the shared key secure against eavesdropping attacks.\\
+\newline
+The here used Thorlabs experimental kit \cite{thor} uses different wavelengths to simulate the different intensities of these decoy states. So different combinations of wavelengths and polarization states can be used for encoding messages. In a real quantum cryptography system it would be important to use pulses that are indistinguishable in wavelength and polarization and only differ in their intensities. If you only use different wavelengths, Eve could filter out certain of these wavelengths easily.

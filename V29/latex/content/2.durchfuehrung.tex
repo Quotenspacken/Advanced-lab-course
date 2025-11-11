@@ -1,1 +1,66 @@
-\section{Implementation}
+\section{Experimental Procedure}
+The Thorlabs Quantum Cryptography Demonstration Kit (EDU-QCRY1)\cite{thor} provides the optical components needed for this experiment. The experimental procedure is divided into two parts. First the standard BB84 protocol will be executed and in the second step the BB84 procedure with decoy states simulated by different wavelengths will be tested.
+
+\subsection{Standard BB84 procedure}
+In the first part of the experiment the standard version of the BB84 procedure without decoy states gets executed. First Alices laser has to be aligned with Bobs detectors using alignment tools or by overlapping the beams directly. The laser should operate continuously in adjustment mode (yellow LED). Once aligned it has to be switched to pulse mode (green LED). After this test measurements are performed, which confirm that the polarization states are correct. All eight possible cases must be verified before starting the experiment.\\
+After the alignment the key generation can be started. Both lasers and detectors have to be set to measurement mode (green LEDs). Alice randomly generates 52 bits together with random bases (+ or x) for encoding. Bob independently generates his own random bases for each measurement and all of the 52 raw detection outcomes are recorded. During the sifting, Alice and Bob compare their bases information. They keep only those measurements where their bases match.\\
+\noindent
+For the error testing and to estimate noise or eavesdropping effects, Alice and Bob compare a small subset of their sifted bits. If mismatches occur between their bits, these count as errors. These errors are used to calculate the Quantum Bit Error Rate (QBER):\\
+\begin{equation}
+\text{QBER}=  \frac{N_{\text{errors}}}{N_{\text{sifted bits}}} 
+\end{equation}
+\\
+\noindent
+A high QBER is a sign for interference from an eavesdropper or noise.\\
+
+\noindent
+In the next step of the experiment Eve is getting introduced. Eves module has to be inserted between Alices and Bobs modules as it can be seen in \autoref{fig:setup}. For Eve you also has to randomly select measurement bases for the interception of Alices messages. After this the message has to be further transmitted to Bob using the same basis. This process typically increases the error rate by about 25$\%$, showing the effects of an eavesdropper attack.\\
+Finally the sifted key has to be used as a one-time pad to encrypt a short message from Alice to Bob. After decryption on Bobs side, correctness confirms successful secure communication under BB84 conditions.\\
+
+\noindent
+The described setup with the three parties Alice (Sender), Eve (Eavesdropper) and Bob (Receiver) can be seen in \autoref{fig:setup} \cite{thor}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{plots/setup.png}
+    \caption{The standard experimental setup for the BB84 procedure \cite{thor}.}
+    \label{fig:setup}
+\end{figure}
+
+\subsection{BB84 procedure with decoy states}
+In the second part of the experiment the procedure gets extended by using two different wavelengths for the messages to simulate the decoy state method.\\
+\noindent
+The alignment procedure has to be repeated for both lasers (red and green wavelengths). Here also all eight cases of polarization settings have to be verified before starting key generation.
+In this extended version of the protocol information is encoded using trits (0, 1, 2) and two different wavelengths, red (r) and green (g). Specific wavelength–basis combinations correspond to signal states used for key generation: \\
+\noindent
+For basis [+]: 0=r0+, 1=r1+, 2=g0+ \\
+For basis [×]: 0=g0x, 1=g1x, 2=r0x \\
+\noindent
+Certain combinations like r1x ([x] basis) and g1+ ([+] basis) act as decoy states that should never appear if no interference occurs.\\
+\noindent
+Next Alice and Bob again generate random sequences of 52 trits/bases each and record their detection outcomes accordingly. As before, Alice and Bob exchange their basis information but retain only matching cases for further analysis. Then they compare all matched values from the sifted dataset to determine:
+
+\begin{itemize}
+	\item $N_{\text{matched sifted bits}}$: Number of correct/matched detection outcomes
+	\item $N_{\text{errors}}$: Number of errors
+	\item $N_{\text{decoys}}$: Number of detected decoy states
+\end{itemize}
+\noindent
+With these results two quantities can then be computed:
+
+\begin{align}
+\text{Quantum Bit Error Rate (QBER)} &= \frac{N_{\text{errors}}}{N_{\text{matched sifted bits}}} \\
+\text{Decoy fraction} &= \frac{N_{\text{decoys}}}{N_{\text{matched sifted bits}}}
+\end{align}
+\noindent
+In the next step Eve is inserted in the Decoy setup. The Eve module gets inserted between Alice and Bob as it can be seen in \autoref{fig:extinction}. The eight cases from the alignment step also has to be tested again.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{plots/secondwl.png}
+    \caption{The extended experimental setup with the Alice, Eve and Bob modules modified to add a second wavelength \cite{cry}. (HWP: half-wave plate, PBS: polarizing beam splitter)}
+    \label{fig:extinction}
+\end{figure}\\
+\noindent
+Then Eve again intercepts Alices pulses using randomly chosen bases, measures the corresponding bit (0 = 0° for [+] basis, -45 ° for [x]; 1 = 90° for [+] basis, 45° for [x]) and then transmits them in the same way further to Bob. \\
+\noindent
+After this measurements the error testing procedure has to be repeated under these conditions. Then the results should be compared with the baseline measurements, eventually revealing how eavesdropping affects both the Quantum Bit Error Rate and the decoy state statistics.
