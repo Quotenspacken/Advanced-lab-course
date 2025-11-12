@@ -20,7 +20,7 @@ The standard BB84 protocol proceeds through the following steps:
 	\item Basis Comparison: Alice and Bob share with each other which bases they used for each photon but not their actual bit values. They discard all measurements where their bases differ and keep only the measurements where their bases match.
 	\item Error Checking: To detect any eavesdropper, Alice and Bob compare a small set of their remaining bits. If Eve attempted to intercept photons, she would have had only a 50$\%$ chance of guessing the correct basis, causing about 25$\%$ errors in this test subset revealing her interference.
 \end{enumerate}
-\\
+
 If no signs of eavesdropping are found, Alice and Bob use the remaining shared bits as their secret key for encryption of their message via a one-time pad.
 
 \subsection{Photon number splitting (PNS) attack}
@@ -44,10 +44,10 @@ A potential eavesdropper could not distinguish these pulses except by their inte
 \noindent
 From these three datasets Alice and Bob then calculate two important quantities:
 \begin{itemize}
-	\item The Gains $(Q_\mu, Q_\nu, Q_{\text{vac}}​)$: The number of detected photons divided by the total number of pulses sent for each state.
-	\item The quantum bit error rates (QBER) $(E_\mu, E_\nu, E_{\text{vac}}​)$: The fraction of detected bits that were measured incorrectly for each state. 
+	\item The Gains $(Q_\mu, Q_\nu, Q_{\text{vac}})$: The number of detected photons divided by the total number of pulses sent for each state.
+	\item The quantum bit error rates (QBER) $(E_\mu, E_\nu, E_{\text{vac}})$: The fraction of detected bits that were measured incorrectly for each state. 
 \end{itemize}
 \noindent
-Using these results Alice and Bob can estimate the yield ($Y_{n}$​) and the error rate ($e_{n}$​) for n-photon pulses. The yield is the probability that Bob detects an n-photon pulse and the error rate is the probability that this detection gives an incorrect bit value. With these results Alice and Bob can calculate, using Poisson statistics and linear equations, a lower bound on the single photon yield ($Y_{1}$​) and an upper bound on its error rate ($e_{1}$​). With these estimates for single-photon yields and errors Alice and Bob determine a secure key rate, representing how much of their sifted key can be seen as secure against eavesdropping. These information makes it possible to post process the bits received from single photon events in a way that makes the shared key secure against eavesdropping attacks.\\
+Using these results Alice and Bob can estimate the yield ($Y_{n}$) and the error rate ($e_{n}$) for n-photon pulses. The yield is the probability that Bob detects an n-photon pulse and the error rate is the probability that this detection gives an incorrect bit value. With these results Alice and Bob can calculate, using Poisson statistics and linear equations, a lower bound on the single photon yield ($Y_{1}$) and an upper bound on its error rate ($e_{1}$). With these estimates for single-photon yields and errors Alice and Bob determine a secure key rate, representing how much of their sifted key can be seen as secure against eavesdropping. These information makes it possible to post process the bits received from single photon events in a way that makes the shared key secure against eavesdropping attacks.\\
 \newline
 The here used Thorlabs experimental kit \cite{thor} uses different wavelengths to simulate the different intensities of these decoy states. So different combinations of wavelengths and polarization states can be used for encoding messages. In a real quantum cryptography system it would be important to use pulses that are indistinguishable in wavelength and polarization and only differ in their intensities. If you only use different wavelengths, Eve could filter out certain of these wavelengths easily.
