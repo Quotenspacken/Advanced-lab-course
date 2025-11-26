@@ -1,2 +1,186 @@
-\section{Theory}
+\section{Modulation}
+Nachrichtentechnische Systeme dienen der Übertragung von Informationen zwischen einem Sender und einem Empfänger und sind heute in einer Vielzahl technischer Anwendungen verbreitet. 
+Dazu zählen klassische analoge Verfahren wie das Telefon oder der Rundfunk, 
+aber auch moderne digitale Systeme wie ISDN, 
+Mobilfunk oder Breitbandkabelnetze \cite{book}.
+Damit ein zu übertragendes Nutzsignal geeignete Eigenschaften für die Übertragung besitzt, 
+muss es in ein Sendesignal umgewandelt werden. 
+Dieser Vorgang wird als \emph{Modulation} bezeichnet. 
+Sie ermöglicht eine effiziente, 
+robuste und reichweitenstarke Übertragung.
+Ein ursprüngliches Nutzsignal ist häufig zu niederfrequent oder besitzt ungünstige spektrale Eigenschaften, 
+um direkt ausgesendet zu werden. 
+Durch die Modulation wird es auf eine hochfrequente Trägerwelle aufgesetzt, 
+deren Parameter (Amplitude, Frequenz, Phase) durch das Nutzsignal verändert werden. 
+Dadurch ergeben sich mehrere Vorteile:
+\begin{itemize}
+	\item Das Signal kann technisch leichter über Antennen abgestrahlt werden.
+	\item Mehrere Kommunikationskanäle können im selben Frequenzraum genutzt werden (Frequenzmultiplex).
+	\item Die Übertragung wird weniger störanfällig, da die hochfrequente Trägerwelle weniger anfällig für Verzerrungen und Rauscheinflüsse ist.
+\end{itemize}
+
+Im Folgenden werden die Amplituden- und Frequenzmodulation als grundlegende analoge Modulationsverfahren betrachtet.
+
+
+
+\subsection{Amplitudenmodulation}
+Bei der Amplitudenmodulation (AM) wird die Amplitude des hochfrequenten Trägersignals $s_T$ durch das niederfrequente Nutzsignal $s(t)$ verändert. 
+Die Trägerfunktion lautet \cite{book}:
+\begin{equation}
+	s_T = [a_T + m s(t)] \cos(w_T t)
+	\label{AM}
+\end{equation}
+Der Modulationsgrad $m$ beschreibt dabei die Stärke der Amplitudenänderung. 
+Für ein sinusförmiges Nutzsignal
+\begin{equation}
+	s(t) = a_s\cos(w_st)
+\end{equation}
+ergibt sich
+\begin{equation}
+	a_T\cos(w_Tt) + \frac{ma_s}{2}\cos(w_t - w_s)t + \frac{ma_s}{2}\cos(w_T + w_s)t.
+	\label{eq:AM}
+\end{equation}
+Das modulierte Signal besteht somit aus dem unmodulierten Träger (erster Summand), 
+einem unteren Seitenband bei der Frequenz $w_T - w_s$ sowie einem oberen Seitenband bei $w_T + w_s$. 
+Die beiden Seitenbänder enthalten die eigentliche Information des Nutzsignals.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/1}
+	\caption{Amplitudenmoduliertes Signal (dünne Linie) mit eingezeichnetem Sendesignal (dicke Linie) in der Zeitdarstellung \cite{Anleitung}.}
+	\label{fig:AM}
+\end{figure}
+Aus den Extremwerten $U_{\max}$ und $U_{\min}$ in Abb.~\ref{fig:AM} lässt sich der Modulationsgrad bestimmen:
+\begin{equation*}
+	m = \frac{U_{max} - U_{min}}{U_{max} + U_{min}}
+\end{equation*}
+Auch im Frequenzbereich lässt sich die AM leicht analysieren. 
+In Abb.~\ref{fig:AMW} erkennt man Trägerfrequenz sowie oberes und unteres Seitenband.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/2}
+	\caption{Darstellung der Amplitudenmodulation im Frequenzbereich \cite{Wikipedia}.}
+	\label{fig:AMW}
+\end{figure}
+Bei nicht-harmonischen Nutzsignalen treten in den Seitenbändern zusätzliche Frequenzanteile auf, 
+welche das Spektrum verbreitern. 
+Der Modulationsgrad kann im Frequenzbereich über das Verhältnis zwischen Seitenbandamplitude $U_{TM}$ und Trägeramplitude $U_T$ bestimmt werden:
+\begin{equation*}
+	m = \frac{U_{TM}}{U_T}.
+\end{equation*}
+
+
+
+\subsection{Frequenzmodulation}
+\label{kap:fmodulation}
+Bei der Frequenzmodulation (FM) wird die Momentanfrequenz der Trägerwelle durch das Nutzsignal verändert:
+\begin{equation*}
+	w(t) = w_T + ms(t)
+\end{equation*}
+Die resultierende zeitabhängige Spannung lautet:
+\begin{equation}
+	U(t) = U\sin(w_Tt+m\frac{w_T}{w_S}\cos(w_S)t).
+	\label{FM}
+\end{equation}
+Unter der Annahme einer Schmalband-Frequenzmodulation ($m\frac{w_T}{w_S} \ll 1$) lässt sich Gleichung~\ref{FM} mithilfe eines Additionstheorems und einer Kleinwinkelnäherung vereinfachen. 
+Dadurch wird eine strukturelle Ähnlichkeit zur Amplitudenmodulation gemäß Gleichung~\ref{eq:AM} sichtbar:
+\begin{equation*}
+	a_T\cos(w_Tt) + \frac{ma_s}{2}\sin(w_t - w_s)t + \frac{ma_s}{2}\sin(w_T + w_s)t.
+\end{equation*}
+Die Frequenzmodulation unterscheidet sich in diesem Grenzfall lediglich durch einen Phasenversatz von $90^\circ$.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/3}
+	\caption{Frequenzmoduliertes Signal (dünne Linie) mit eingezeichnetem Modulationssignal (dicke Linie) \cite{book}.}
+	\label{fig:FM}
+\end{figure}
+Bei stärkerer Frequenzmodulation ist die Kleinwinkelnäherung nicht mehr zulässig. 
+Analog zur AM entstehen dann weitere spektrale Linien, 
+die sich über mehrere sogenannte \emph{Seitenordnungen} erstrecken. 
+Dies führt zu einem breiteren Frequenzspektrum, 
+wie es beispielsweise beim UKW-Rundfunk genutzt wird.
+
+
+
+
+
+\section{Modulations- und Demodulationsverfahren}
+\subsection{Modulation}
+Zur Erzeugung eines amplitudenmodulierten Signals wird ein nichtlinearer Baustein benötigt, 
+der ein Produkt aus Trägerspannung und Nutzspannung erzeugt. 
+Eine einfache Realisierung erfolgt durch eine Diode, 
+wie in Abb.~\ref{fig:Diode} dargestellt.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Bilder/4}
+	\caption{Erzeugung einer Amplitudenmodulation mit einer Diode \cite{Anleitung}.}
+	\label{fig:Diode}
+\end{figure}
+Die vereinfachte Kennlinie einer Diode lautet \cite{Anleitung}:
+\begin{equation*}
+	I(U)\approx a_0+a_1U+a_2U^2.
+\end{equation*}
+Der quadratische Term liefert dabei den zur Modulation notwendigen Produktanteil.
+
+Eine präzisere AM mit unterdrücktem Träger kann mit einem Ringmodulator erzeugt werden, 
+siehe Abb.~\ref{fig:FMR}. 
+Hier wird der Träger effizient ausgeblendet, 
+sodass nur die Seitenbänder verbleiben. 
+Dies erleichtert die spätere Demodulation und führt zu einer besseren Störfestigkeit.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/5}
+	\caption{Erzeugung einer Amplitudenmodulation mit Trägerunterdrückung durch einen Ringmodulator \cite{Anleitung}.}
+	\label{fig:FMR}
+\end{figure}
+
+Zur Erzeugung frequenzmodulierter Signale lässt sich ebenfalls ein Ringmodulator verwenden. 
+Mithilfe eines Phasenschiebers kann aus einem amplitudenmodulierten Signal ein schmalbandig frequenzmoduliertes Signal erzeugt werden, 
+wie in Abb.~\ref{fig:fm} dargestellt.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/6}
+	\caption{Schaltung zur Erzeugung eines frequenzmodulierten Signals mit geringem Frequenzhub \cite{Anleitung}.}
+	\label{fig:fm}
+\end{figure}
+
+
+
+\subsection{Demodulation}
+Für die Rückgewinnung des Nutzsignals existieren verschiedene Demodulationsmethoden.
+Eine einfache Möglichkeit für AM ist das Gleichrichten des modulierten Signals und anschließendes Filtern mittels eines Tiefpasses (Hüllkurvendemodulator). Die entsprechende Schaltung ist in Abb.~\ref{fig:Demod1} gezeigt.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/7}
+	\caption{Demodulation mithilfe eines Gleichrichters und eines Tiefpasses \cite{Anleitung}.}
+	\label{fig:Demod1}
+\end{figure}
+
+Eine alternative Methode ist die Demodulation mittels Ringmodulator (synchrone Demodulation), 
+siehe Abb.~\ref{fig:Demod2}. 
+Diese Methode ist besonders für Signale mit unterdrücktem Träger geeignet und ermöglicht eine präzisere Rekonstruktion des Nutzsignals, 
+da der Demodulator den ursprünglichen Träger wieder einspeist.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/8}
+	\caption{Demodulation mithilfe eines Ringmodulators \cite{Anleitung}.}
+	\label{fig:Demod2}
+\end{figure}
+
+Für die Demodulation eines frequenzmodulierten Signals wird zunächst ein Schwingkreis verwendet, 
+der das FM-Signal aufgrund seiner frequenzabhängigen Amplitudenübertragung in ein amplitudenmoduliertes Signal umwandelt. 
+Dieses kann anschließend wie bei der AM durch Gleichrichter und Tiefpass demoduliert werden (Abb.~\ref{fig:Demod3}).
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Bilder/9}
+	\caption{Demodulation eines frequenzmodulierten Signals mittels Schwingkreis und anschließender AM-Demodulation \cite{Anleitung}.}
+	\label{fig:Demod3}
+\end{figure}
+
+
+
+
+
+
+
+
 

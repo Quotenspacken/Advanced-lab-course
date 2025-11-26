@@ -1,1 +1,42 @@
-\section{Experimental Procedure}
+\section{Durchführung}
+Für die experimentelle Untersuchung der Amplituden- und Frequenzmodulation standen ein zweikanaliger hochfrequenter Signalgenerator, 
+ein Oszilloskop, 
+ein Spektrumanalysator sowie verschiedene diskrete Schaltungselemente zur Verfügung. 
+Alle Schaltungen wurden so betrieben, 
+dass die effektiven Spannungen $E_{\mathrm{eff}} = 2\mathrm{V}$ nicht überschritten wurden. 
+
+Im ersten Schritt wurde ein Ringmodulator zur Erzeugung einer Amplitudenmodulation mit unterdrücktem Träger aufgebaut. 
+Dazu wurden Träger- und Modulationssignal an die entsprechenden Eingänge gelegt und das Ausgangssignal auf dem Oszilloskop dargestellt. 
+Der zeitliche Verlauf wurde als PNG gespeichert, 
+zusätzlich wurde das zugehörige Spektrum mithilfe des Spektrumanalysators als CSV-Datei aufgenommen.
+
+Anschließend wurde mithilfe der vorgegebenen Diodenschaltung der allgemeine Fall einer Amplitudenmodulation mit Trägerabstrahlung realisiert.
+Das Ausgangssignal wurde sowohl zeitlich als PNG und CSV als auch im Frequenzbereich dokumentiert. 
+Für die spätere Auswertung wurden die für den Modulationsgrad relevanten Signale vollständig aufgezeichnet.
+
+Im nächsten Teil wurde die Schaltung zur Erzeugung eines schmalbandigen frequenzmodulierten Signals aufgebaut. 
+Die Kombination aus Ringmodulator und $90^\circ$-Phasenschieber erzeugte am Ausgang ein FM-Signal, 
+dessen zeitlicher Verlauf bei verschiedenen Trigger­einstellungen aufgenommen wurde. 
+Es wurden sowohl Darstellungen des stabilen Bildes als auch des bei Eingangstriggerung entstehenden verschobenen Kurvenverlaufs als PNG gesichert.
+
+Im Anschluss daran wurde ein phasenempfindlicher Gleichrichter mithilfe eines Ringmodulators aufgebaut, 
+um die Demodulation amplitudenmodulierter Signale zu untersuchen. 
+Dazu wurden ein Referenzträgersignal sowie das AM-Signal an die vorgesehenen Eingänge geführt. 
+Am Ausgang des Tiefpasses wurde die Gleichspannung für verschiedene Phasenlagen gemessen und die Messreihe vollständig dokumentiert.
+
+Daraufhin wurde ein amplitudenmoduliertes Signal mit Trägerabstrahlung erzeugt, 
+wobei das Ausgangssignal eines Ringmodulators über einen Leistungsteiler mit einem Anteil des Trägersignals überlagert wurde. 
+Die Demodulation erfolgte erneut über einen Ringmodulator mit nachgeschaltetem Tiefpass. 
+Der zeitliche Verlauf des Signals hinter dem Ringmodulator sowie am Tiefpassausgang wurde jeweils als PNG gespeichert.
+
+Als weiteres Verfahren wurde eine Hüllkurvendemodulation durchgeführt. 
+Dazu wurde das amplitudenmodulierte Signal gleichgerichtet und anschließend über einen Tiefpass geführt.
+Der zeitliche Verlauf vor und nach dem Tiefpass wurde jeweils aufgezeichnet, 
+um die nachfolgende Auswertung zu ermöglichen.
+
+Zum Abschluss wurde die Demodulation eines frequenzmodulierten Signals umgesetzt. 
+Das FM-Signal wurde hierfür zunächst einem abgestimmten LC-Schwingkreis zugeführt,
+um es in ein amplitudenmoduliertes Signal zu überführen.
+Anschließend erfolgte die Demodulation über Gleichrichter und Tiefpass. 
+Die Signale hinter dem Schwingkreis, 
+hinter dem Gleichrichter und am Tiefpassausgang wurden jeweils separat als PNG gespeichert.
