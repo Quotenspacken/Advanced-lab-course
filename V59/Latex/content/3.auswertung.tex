@@ -1,7 +1,256 @@
-\section{Evaluation}
+\section{Auswertung}
+Bei diesem Versuch wurden verschiedene Verfahren der Amplituden- und Frequenzmodulation in mehreren Teilmessungen untersucht. Die Durchführung der einzelnen Verfahren und Messungen entspricht der Beschreibung in \autoref{sec:df}. Bei jedem dieser Messvorgänge wurden sowohl die Modulationsamplitude $U_\text{M}$ und die Modulationsfrequenz $f_\text{M}$, als auch die Trägeramplitude $U_\text{T}$ und die Trägerfrequenz
+$f_\text{T}$ anhand der gemessenen Signale dokumentiert. Im Folgenden werden zu jeder der Teilmessungen diese entsprechenden Werte genannt und es werden die jeweils erhaltenen Signale dargestellt.
+
+\subsection{Erzeugung und Analyse modulierter Signale}
+
+Zu Beginn wurde, wie in den vorherigen Kapiteln beschrieben, eine  amplitudenmodulierte Schwingung mit Trägerunterdrückung mit Hilfe der Schaltung aus \autoref{fig:FMR} durch einen Ringmodulator  erzeugt. Dabei wurden mehrere Messungen durchgeführt, um verschiedene Ausgangssignale aufnehmen zu können. Die so entstandenen Schwebungen sind in den folgenden Abbildungen dargestellt. \newline 
+Das Ergebnis der ersten dieser Messungen ist in \autoref{fig:amplModOszi} zu sehen.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_0.png}
+  \caption{Die erste gemessene Schwebung entstanden bei der mit Ringmodulator erzeugten amplitudenmodulierten Schwingung mit Trägerunterdrückung.}
+  \label{fig:amplModOszi}
+\end{figure}
+
+Bei der Messung zu \autoref{fig:amplModOszi} wurden für die Trägeramplitude und die Trägerfrequenz
+\begin{align*}
+  f_\text{M} &= \SI{10}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}\\
+  f_\text{T} &= \SI{500}{\kilo\hertz} & U_\text{T} &= \SI{1}{\volt}
+\end{align*}
+bestimmt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_1.png}
+  \caption{Die zweite gemessene Schwebung entstanden bei der mit Ringmodulator erzeugten amplitudenmodulierten Schwingung mit Trägerunterdrückung.}
+  \label{fig:amplModOszi11}
+\end{figure}
+
+Die zu \autoref{fig:amplModOszi11} bestimmten Werte sind 
+\begin{align*}
+  f_\text{M} &= \SI{10}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}\\
+  f_\text{T} &= \SI{100}{\kilo\hertz} & U_\text{T} &= \SI{1}{\volt}.
+\end{align*}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_2.png}
+  \caption{Die dritte gemessene Schwebung entstanden bei der mit Ringmodulator erzeugten amplitudenmodulierten Schwingung mit Trägerunterdrückung.}
+  \label{fig:amplModOszi12}
+\end{figure}
+
+Aus dem Modulations- und dem Trägersignal zu \autoref{fig:amplModOszi12} wurden 
+\begin{align*}
+  f_\text{M} &= \SI{10}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}\\
+  f_\text{T} &= \SI{100}{\kilo\hertz} & U_\text{T} &= \SI{1}{\volt}
+\end{align*}
+ermittelt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_3.png}
+  \caption{Die vierte gemessene Schwebung entstanden bei der mit Ringmodulator erzeugten amplitudenmodulierten Schwingung mit Trägerunterdrückung.}
+  \label{fig:amplModOszi13}
+\end{figure}
+
+Die zu \autoref{fig:amplModOszi13} bestimmten Werte sind 
+\begin{align*}
+  f_\text{M} &= \SI{20}{\kilo\hertz} & U_\text{M} &= \SI{100}{\milli\volt}\\
+  f_\text{T} &= \SI{500}{\kilo\hertz} & U_\text{T} &= \SI{500}{\milli\volt}.
+\end{align*}
+
+%\newline
+\noindent
+Bei dem nächsten Messverfahren wurde die Amplitudenmodulation mit Trägerabstrahlung realisiert. Dazu wurde eine Schaltung nach \autoref{fig:Diode} genutzt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_4.png}
+  \caption{Amplitudenmoduliertes Signal mit Trägerabstrahlung.}
+  \label{fig:amplModOszi14}
+\end{figure}
+
+Die zu \autoref{fig:amplModOszi14} bestimmten Werte sind 
+\begin{align*}
+  f_\text{M} &= \SI{200}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}\\
+  f_\text{T} &= \SI{5}{\mega\hertz} & U_\text{T} &= \SI{1}{\volt}.
+\end{align*}
+
+Zu dieser Messung wurde zusätzlich der Modulationsgrad m bestimmt. Wie in \autoref{sec:mod} beschrieben, kann der Modulationsgrad unter anderem nach \autoref{eq:m} bestimmt werden. Da zu dieser Messung auch eine CSV-Datei aufgenommen wurde, konnten die Signale gefittet werden. So wurden die benötigten Amplituden aus den Daten zu 
+\begin{align*}
+  U_\text{max} &= \SI{23.89}{\milli\volt} & U_\text{min} &= \SI{3.3}{\milli\volt}
+\end{align*}
+bestimmt.
+Für den Modulationsgrad ergibt dies also:
+\begin{equation*}
+	m = \frac{\SI{23.89}{\milli\volt} - \SI{3.3}{\milli\volt}}{\SI{23.89}{\milli\volt} + \SI{3.3}{\milli\volt}} \approx 0.76
+\end{equation*}
 
 
 
+Anschließend wurde eine Schaltung nach \autoref{fig:fm} aufgebaut, um ein frequenzmoduliertes Signal zu erzeugen. Mit der Kombination aus Ringmodulator und $90^\circ$-Phasenschieber konnte folgendes Signal aufgenommen werden:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_5.png}
+  \caption{Durch die Kombination aus Ringmodulator und $90^\circ$-Phasenschieber erzeugtes Signal mit der durch Eingangstriggerung entstehenden verschobenen Kurve.}
+  \label{fig:amplModOszi1}
+\end{figure}
+
+Der Bildausschnitt der Signalkurve auf dem Oszilloskop wurde so eingestellt, dass die maximale Verschmierung sichtbar wird, wie in \autoref{fig:amplModOszi1} zu sehen ist.
+Die zu \autoref{fig:amplModOszi1} bestimmten Werte sind 
+\begin{align*}
+  f_\text{M} &= \SI{200}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}\\
+  f_\text{T} &= \SI{5}{\mega\hertz} & U_\text{T} &= \SI{1}{\volt}.
+\end{align*}
+
+In \autoref{sec:mod} wird beschrieben wie der Modulationsgrad eines solchen frequenzmodulierten Signals bestimmt werden kann. Dazu wurde aus den aufgenommenen Daten der Frequenzhub der Frequenzmodulation bestimmt. Es wurde in der Auswertung aus den Daten ein gesamter Frequenzhub von 
+\begin{align*}
+ \Delta f &= \SI{260.2}{\kilo\hertz} 
+\end{align*}
+bestimmt.
+Das heißt, dass sich für das hier erzeugte frequenzmodulierte Signal ein Modulationsgrad von 
+\begin{equation*}
+	m = \frac{\frac{\Delta f}{2}}{f_\text{M}} = \frac{\frac{\SI{260.2}{\kilo\hertz}}{2}}{\SI{200}{\kilo\hertz}} \approx 0.65
+\end{equation*}
+ergibt.
+
+\subsection{Demodulation modulierter Signale}
+Bei der folgenden Messreihe wurde die Schaltung eines phasenempfindlichen Gleichrichters mit einem Ringmodulator aufgebaut, um dessen Eignung zur Demodulation zu untersuchen. Dabei wurden drei verschiedene Ausgangssignale mit unterschiedlichen Phasenverschiebungen gemessen. 
+Zu den folgenden Signalen wurde jeweils auch eine Phasenverzögerung bestimmt.
+Die erste dieser Messungen mit phasenempfindlichem Gleichrichter ergab folgendes Ausgangssignal:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_6.png}
+  \caption{Erste Messung eines phasenverschobenen Ausgangssignals durch phasenempfindlichen Gleichrichter mit Ringmodulator.}
+  \label{fig:amplModOszi2}
+\end{figure}
+\noindent
+Die bei der Messung zu \autoref{fig:amplModOszi2} bestimmten Werte sind 
+\begin{align*}
+  f_\text{M} &= \SI{500}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}.
+\end{align*}
+Zu dieser Messung wurde zusätzlich eine Phasenverzögerung von $T = \SI{250}{\nano\second}$ ermittelt. 
+Bei der zweiten Messung mit phasenempfindlichem Gleichrichter konnte das in \autoref{fig:amplModOszi3} zu sehende Signal ermittelt werden.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_7.png}
+  \caption{Zweite Messung eines phasenverschobenen Ausgangssignals durch phasenempfindlichen Gleichrichter mit Ringmodulator.}
+  \label{fig:amplModOszi3}
+\end{figure}
+Dabei wurden außerdem die Werte 
+\begin{align*}
+  f_\text{M} &= \SI{500}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}.
+\end{align*}
+ermittelt.
+Hier wurde eine Phasenverzögerung von $T = \SI{290}{\nano\second}$ bestimmt.
+Die dritte Messung dieser Messreihe hatte eine deutlich geringere Phasenverzögerung, wie in \autoref{fig:amplModOszi4} zu sehen ist.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_8.png}
+  \caption{Dritte Messung eines phasenverschobenen Ausgangssignals, hier mit deutlich geringerer Phasenverzögerung.}
+  \label{fig:amplModOszi4}
+\end{figure}
+
+Die zu \autoref{fig:amplModOszi4} bestimmten Werte sind 
+\begin{align*}
+  f_\text{M} &= \SI{500}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}.
+\end{align*}
+
+Die hier ermittelte Phasenverzögerung beträgt $T = \SI{40}{\nano\second}$.
+
+Als nächste Messreihe wurde die Demodulation eines amplitudenmodulierten Signals mit Trägerabstrahlung über einen Ringmodulator und einen Tiefpass  realisiert. Hinter dem Tiefpass wurde dabei folgendes in \autoref{fig:amplModOszi5} zu sehende Signal aufgenommen.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_9.png}
+  \caption{Moduliertes Signal(gelb) und Modulationsschwingung(grün) zur Demodulation des amplitudenmodulierten Signals mit Trägerabstrahlung über einen Ringmodulator und einen Tiefpass.}
+  \label{fig:amplModOszi5}
+\end{figure}
+
+Die zu dieser Messung bestimmten Werte sind 
+\begin{align*}
+  f_\text{M} &= \SI{200}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}\\
+  f_\text{T} &= \SI{5}{\mega\hertz} & U_\text{T} &= \SI{1}{\volt}.
+\end{align*}
+Wie zu erwarten ist am Ausgang des Tiefpasses eine phasenverschobene Kopie des Modulationssignals zu sehen.
 
 
+Als nächstes wurde die Demodulation eines amplitudenmodulierten Signals durchgeführt, bei der das amplitudenmodulierte Signal gleichgerichtet und dann über einen Tiefpass geführt wurde.
+Dabei wurde hinter dem Gleichrichter folgendes Signal aufgenommen:
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_14.png}
+  \caption{Nach dem Gleichrichter aufgenommenes Signal bei der Demodulation eines amplitudenmodulierten Signals über einen Gleichrichter und einen Tiefpass.}
+  \label{fig:amplModOszi6}
+\end{figure}
+
+Die zu \autoref{fig:amplModOszi6} bestimmten Werte sind 
+\begin{align*}
+  f_\text{M} &= \SI{20}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}\\
+  f_\text{T} &= \SI{500}{\kilo\hertz} & U_\text{T} &= \SI{1}{\volt}.
+\end{align*}
+
+Nach dem Tiefpass konnte folgendes Signal gemessen werden:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_10.png}
+  \caption{Nach dem Tiefpass aufgenommenes Signal bei der Demodulation eines amplitudenmodulierten Signals über einen Gleichrichter und einen Tiefpass.}
+  \label{fig:amplModOszi10}
+\end{figure}
+
+Zu der Messung nach dem Tiefpass (\autoref{fig:amplModOszi10}) wurden die Werte 
+\begin{align*}
+  f_\text{M} &= \SI{20}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}\\
+  f_\text{T} &= \SI{500}{\kilo\hertz} & U_\text{T} &= \SI{1}{\volt}
+\end{align*}
+bestimmt. \newline
+
+\noindent
+Abschließend wurde ein frequenzmoduliertes Signal demoduliert. Bei diesem Vorgang wurde das frequenzmodulierte Signal einem LC-Schwingkreis zugeführt und so in ein amplitudenmoduliertes Signal umgewandelt. Schließlich wurde das Signal über einen Gleichrichter und einen Tiefpass demoduliert. Der zeitliche Verlauf des Signals auf dem Oszilloskopschirm wurde jeweils als Bild aufgenommen und ist im Folgenden dargestellt.
+
+Nach dem Schwingkreis wurde folgendes Signal aufgenommen:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_11.png}
+  \caption{Signal hinter dem Schwingkreis.}
+  \label{fig:amplModOszi7}
+\end{figure}
+
+Die zu \autoref{fig:amplModOszi7} bestimmten Werte sind 
+\begin{align*}
+  f_\text{M} &= \SI{20}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}\\
+  f_\text{T} &= \SI{500}{\kilo\hertz} & U_\text{T} &= \SI{1}{\volt}.
+\end{align*}
+
+Dieses Signal wurde hinter dem Gleichrichter aufgenommen:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_12.png}
+  \caption{Nach dem Gleichrichter aufgenommenes Signal.}
+  \label{fig:amplModOszi8}
+\end{figure}
+
+Die zur Messung nach dem Gleichrichter bestimmten Werte sind 
+\begin{align*}
+  f_\text{M} &= \SI{20}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}\\
+  f_\text{T} &= \SI{500}{\kilo\hertz} & U_\text{T} &= \SI{1}{\volt}.
+\end{align*}
+
+Wie zu erwarten wurde hinter dem Tiefpass ein phasenverschobenes Signal aufgenommen:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Bilder/osz/scope_13.png}
+  \caption{Phasenverschobenes Signal hinter dem Tiefpass.}
+  \label{fig:amplModOszi9}
+\end{figure}
+
+Die zu \autoref{fig:amplModOszi9} bestimmten Werte sind 
+\begin{align*}
+  f_\text{M} &= \SI{20}{\kilo\hertz} & U_\text{M} &= \SI{500}{\milli\volt}\\
+  f_\text{T} &= \SI{500}{\kilo\hertz} & U_\text{T} &= \SI{1}{\volt}.
+\end{align*}
