@@ -1,7 +1,218 @@
-\section{Evaluation}
+\section{Analysis}
 
 
 
+\subsection{Determination of the Contrast in dependency of the polarisation angle}
+As described in Section%~\ref{},Richtiges Kapittel, das den Kontrast K erklärt
+the interference contrast $K$ is determined from the minimum and maximum intensities of the interference pattern according to
+\begin{equation*}
+    K = \frac{I_{\max}-I_{\min}}{I_{\max}+I_{\min}}.
+\end{equation*}
+To investigate the dependence of the contrast on the polarization angle $\phi$, 
+the minimum and maximum intensities were measured for a range of polarization angles between $0^\circ$ and $180^\circ$. 
+For each angle, three independent measurements were performed in order to reduce statistical fluctuations.
+The measured values are summarized in Table~\ref{tab:contrast}. 
+\begin{table}
+    \centering
+    \begin{tabular}{S S S S S S S}
+        \toprule
+        {$\phi/\si{\degree}$} & {$I_\text{min1}/\si{\volt}$} & {$I_\text{max1}/\si{\volt}$} & {$I_\text{min2}/\si{\volt}$} & {$I_\text{max2}/\si{\volt}$}  & {$I_\text{min3}/\si{\volt}$} & {$I_\text{max3}/\si{\volt}$}\\
+        \midrule
+        0   & 1.63 & 1.52 & 1.81 & 1.50 & 1.75 & 1.49 \\
+        10  & 1.56 & 1.01 & 1.49 & 0.99 & 1.51 & 0.91 \\
+        20  & 1.35 & 0.48 & 1.36 & 0.47 & 1.39 & 0.46 \\
+        30  & 1.20 & 0.23 & 1.18 & 0.22 & 1.29 & 0.20 \\
+        40  & 1.26 & 0.09 & 1.27 & 0.11 & 1.23 & 0.99 \\
+        50  & 1.48 & 0.04 & 1.48 & 0.05 & 1.49 & 0.05 \\
+        60  & 1.73 & 0.13 & 1.78 & 0.09 & 1.79 & 0.99 \\
+        70  & 2.10 & 0.35 & 2.13 & 0.31 & 1.93 & 0.32 \\
+        80  & 2.23 & 0.81 & 2.07 & 0.76 & 2.23 & 0.86 \\
+        90  & 2.26 & 1.62 & 2.14 & 1.53 & 2.11 & 1.51 \\
+        100 & 2.29 & 2.14 & 2.90 & 1.38 & 2.70 & 1.45 \\
+        110 & 3.87 & 0.85 & 3.85 & 0.87 & 3.91 & 0.93 \\
+        120 & 4.72 & 0.40 & 4.54 & 0.40 & 4.94 & 0.40 \\
+        130 & 5.49 & 0.17 & 5.32 & 0.17 & 5.50 & 0.18 \\
+        140 & 5.30 & 0.27 & 5.23 & 0.21 & 5.06 & 0.22 \\
+        150 & 4.91 & 0.59 & 4.76 & 0.50 & 4.61 & 0.52 \\
+        160 & 3.98 & 1.08 & 3.88 & 0.96 & 4.10 & 1.01 \\
+        170 & 2.82 & 1.36 & 2.78 & 1.37 & 2.98 & 1.41 \\
+        180 & 1.75 & 1.56 & 1.70 & 1.49 & 1.81 & 1.56 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Measured minimal and maximal intensity for different polarisation angles $\phi$.
+             The measurement results from three different measurements are shown.}
+    \label{tab:contrast}
+\end{table}
+From these data, 
+the contrast was calculated individually for each measurement. 
+Subsequently, 
+the mean value and the corresponding standard deviation of $K$ were computed using \textit{numpy}~\cite{numpy}. 
+The resulting averaged contrast values are visualized in Figure~\ref{fig:contrast}.
+\begin{figure}[h] 
+    \centering 
+    \includegraphics[width=0.8\textwidth]{build/contrast.pdf} 
+    \caption{Averaged contrast $K$ as a function of the polarization angle $\phi$ with a fit using the function described in Equation \eqref{eqn:K_ana}.} 
+    \label{fig:contrast} 
+\end{figure}
+According to the theoretical description of the interferometer, 
+the contrast is expected to follow the functional dependence
+\begin{equation*}
+    K_\text{theo} = 2\lvert \sin\phi \cos\phi \rvert,
+\end{equation*}
+which arises from the projection of the electric field components onto the analyzer axis.
+In order to account for small misalignments of optical components and systematic deviations from the ideal setup, 
+this expression is extended by introducing a phase offset $\delta$ and a scaling factor $K_0$.
+The modified model function used for the fit is therefore given by
+\begin{equation*}
+    K(\phi) = 2K_0 \lvert \sin(\phi-\delta)\cos(\phi-\delta) \rvert.
+    \label{eqn:K_ana}
+\end{equation*}
+The fit was performed using \textit{scipy}~\cite{scipy} and is shown together with the experimental data in Figure~\ref{fig:contrast}. 
+The resulting fit parameters are
+\begin{align*}
+    K_0 &= 0.9914 \pm 0.0118, \\
+    \delta &= (4.73 \pm 0.15)^\circ.
+\end{align*}
+The value of $K_0$ is close to unity, 
+indicating a high-quality interference pattern and only minor losses in contrast due to imperfections of the optical components. 
+The finite offset angle $\delta$ suggests a slight misalignment of the polarization optics with respect to the defined angular reference.
+
+The maximum contrast was experimentally observed at a polarization angle of $\phi=\SI{50}{\degree}$. 
+For all subsequent measurements, the polarization angle was therefore fixed at this value in order to ensure optimal interference visibility.
 
 
 
+\subsection{The Refractive Index of Glass}
+The refractive index of glass was determined by measuring the phase shift induced by rotating glass plates in one arm of the interferometer. 
+As the plates are rotated, 
+the optical path length changes, 
+leading to a shift of the interference pattern. 
+The number of intensity maxima $M$ passing through the center during a defined angular rotation provides a direct measure of this phase shift.
+The glass plates were rotated by an angle of $\theta=\SI{10}{\degree}$, 
+covering the angular interval from $30^\circ$ to $40^\circ$. 
+This measurement was repeated ten times. 
+The measured numbers of intensity maxima are listed in Table~\ref{tab:glas}.
+\begin{table}
+    \centering
+    \begin{tabular}{SSS}
+        \toprule
+        {Measurement} & {$M$} & {$n$} \\
+        \midrule
+        1  & 29 & 1.431 \\ 
+        2  & 32 & 1.498 \\
+        3  & 35 & 1.572 \\
+        4  & 35 & 1.572 \\
+        5  & 34 & 1.546\\
+        6  & 33 & 1.522\\
+        7  & 33 & 1.522\\
+        8  & 34 & 1.546\\
+        9  & 32 & 1.498\\
+        10 & 37 & 1.624\\
+        \bottomrule       
+    \end{tabular}
+    \caption{Measured values of the number of intensity maxima $M$ that pass through the center as the glass plates are rotated by $10^\circ$. 
+            Also the resulting refractive indices are included.} 
+    \label{tab:glas}     
+\end{table}
+
+Since the glass plates are symmetrically tilted by $\theta_0=\pm\SI{10}{\degree}$, 
+the general expression for the phase shift %(see Section~\ref{sec:phase_theory}) Passende Sectin angeben
+can be simplified by setting $\theta_1=-\theta_2=\pm 10$, resulting in
+\begin{equation*}
+    \Delta\Phi(\theta) = 2\pi\frac{T}{\lambda_\text{vac}}\frac{n-1}{n}\cdot 2\theta_0\theta.
+\end{equation*}
+Using the relation between phase shift and the number of observed intensity maxima,
+\begin{equation*}
+    M = \frac{\Delta\Phi}{2\pi},
+\end{equation*}
+one obtains
+\begin{equation}
+    M = \frac{T}{\lambda_\text{vac}}\frac{n-1}{n}\cdot 2\theta_0\theta.
+    \label{eqn:M_ana}
+\end{equation}
+
+Here, $\lambda_\text{vac}=\SI{632.99}{\nano\metre}$ denotes the wavelength of the laser, 
+and $D=\SI{1}{\milli\metre}$ is the thickness of the glass plates~\cite{V64}. 
+Solving Equation~\eqref{eqn:M_ana} for the refractive index yields
+\begin{equation*}
+    n = \frac{2\theta_0\theta D}{2\theta_0\theta D - \lambda_\text{vac} M}.
+\end{equation*}
+The refractive index calculated for each individual measurement is also included in Table~\ref{tab:glas}.
+
+Using the values listed in Table~\ref{tab:glas}, the resulting mean refractive index of the glass is
+\begin{equation}
+    \bar{n} = \num{1.533 \pm 0.019}.
+\end{equation}
+
+
+
+\subsection{The Refractive Index of Gas}
+As described in Section%~\ref{},Richtiges Kapittel, das den Brechungsindex von Gas erklärt
+the refractive index of a gas is measured by observing the phase shift induced by changing the pressure inside a gas cell placed in one of the two beams.
+The measured values for the number of intensity maxima $M$ observed while varying the pressure from $\SI{0}{\milli\bar}$ to $\SI{1000}{\milli\bar}$ are listed in Table~\ref{tab:gas}.
+\begin{table}
+    \centering
+    \begin{tabular}{S S S S}
+        \toprule
+        {$p/\si{\milli\bar}$} & {$M_1$} & {$M_2$} & {$M_3$}\\
+        \midrule
+        50   & 2  &  2 &  2 \\ 
+        100  & 4  &  4 &  4 \\ 
+        150  & 6  &  6 &  6 \\ 
+        200  & 8  &  8 &  8 \\ 
+        250  & 10 & 10 & 10 \\
+        300  & 12 & 12 & 13 \\
+        350  & 14 & 15 & 15 \\
+        400  & 17 & 16 & 17 \\
+        450  & 19 & 19 & 19 \\
+        500  & 21 & 21 & 21 \\
+        550  & 23 & 23 & 23 \\
+        600  & 25 & 25 & 25 \\
+        650  & 27 & 27 & 28 \\
+        700  & 29 & 29 & 30 \\
+        750  & 31 & 31 & 32 \\
+        800  & 33 & 33 & 34 \\
+        850  & 35 & 36 & 36 \\
+        900  & 38 & 38 & 38 \\
+        950  & 40 & 40 & 40 \\
+        1000 & 42 & 42 & 42 \\
+    \end{tabular}
+    \caption{Measured values of the number of maxima $M$ that passed the center for different gas pressures $p$.}
+    \label{tab:gas}
+\end{table}
+Because the values for the different measurements are very similar,
+in figure~\ref{fig:gas} is only shown the value of $M_1$.
+\begin{figure}
+    \centering 
+    \includegraphics[width=0.8\textwidth]{build/n_air.pdf}
+    \caption{Averaged number of maxima $M$ as a function of the gas pressure $p$ with a fit using the function described in Equation \eqref{eqn:M_gas}.}
+    \label{fig:gas}
+\end{figure}
+
+In the case where $n \approx \num{1}$, the Lorentz-Lorenz law 
+%\eqref{} Lorenzgesetz gleichung 
+can be simplified to 
+\begin{equation}
+    n=\frac{3}{2}\frac{Ap}{RT}+1.
+    \label{eqn:n_gas}
+\end{equation}
+With the measured room temperature $T_{\text{room}} = \SI{20.3}{\celsius}$ 
+and $L = \SI{100}{\milli\metre}$, this results in a linear function 
+\begin{equation}
+    n(p)=\frac{3}{2}\frac{p}{RT_\text{room}}\cdot a+b
+    \label{eqn:M_gas}
+\end{equation}
+where the parameters $a$ and $b$ are fitted to the data. 
+The fit is shown in Figure \ref{fig:gas}. 
+The values of the 
+parameters are 
+\begin{align*}
+    a=(4.44 \pm 0.02)10^{-4} \quad\text{and}\quad b=0.9999987 \pm 0.0000008.
+\end{align*}
+Plugging these values into Equation \eqref{eqn:n_gas} with a 
+temperature of $T = \SI{15}{\degreeCelsius}$ and a pressure of 
+$p = \SI{1013}{\hecto\pascal}$ leads to the measured refractive 
+index of air at standard atmospheric conditions:
+\begin{equation*}
+    n_\text{gas}=1.0002734\pm 0.0000015.
+\end{equation*}
