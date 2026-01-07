@@ -49,7 +49,8 @@ x = np.linspace(0, 1000, 100)
 fig, ax1 = plt.subplots(figsize=(8, 6))
 
 # Daten und Fit im Hauptplot darstellen
-ax1.errorbar(p, noms(n), yerr=stds(n), fmt='.', markersize=5, color='black', ecolor='dimgray', elinewidth=2, capsize=2, label="Data")
+ax1.scatter(p, noms(n), color='black', s=20, label="Data")
+#ax1.errorbar(p, noms(n), yerr=stds(n), fmt='.', markersize=5, color='black', ecolor='dimgray', elinewidth=2, capsize=2, label="Data")
 ax1.plot(x, n_air_theo(x, *params2), color='dodgerblue', linestyle='-', linewidth=2, label="Fit")
 
 # Beschriftungen und Grenzen für den Hauptplot
