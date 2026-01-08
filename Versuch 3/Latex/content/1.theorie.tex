@@ -1,1 +1,88 @@
 \section{Theory}
+
+\subsection{Coherent light}
+The coherence of light is a crucial factor for observing clear interference patterns when two light waves interfere with each other. These patterns typically occur when two waves with compatible phases interfere and form a constructive or a destructive interference. Coherent light means that there is a consistent phase relationship between the interfering waves.
+A laser beam, as used in this experiment, shows a high temporal and spatial coherence. The level of coherence can be calculated by:
+\begin{equation}
+    \gamma_{1,2}(\vec{r}_1,t_1;\vec{r}_2,t_2)=
+    \frac{\langle E(\vec{r}_1,t_1)E^*(\vec{r}_2,t_2) \rangle}{\sqrt{\langle |E(\vec{r}_1,t_1)|^2 \rangle\langle |E(\vec{r}_2,t_2)|^2 \rangle}}
+    \label{eqn:degree}
+\end{equation}
+Here $E(\vec{r}_i,t_i)$ represents the amplitude of the electric field at position $\vec{r}_i$ 
+and time $t_i$. A $\gamma_{1,2}$ value of \num{0} shows complete incoherence, while 
+\num{1} indicates perfect coherence.
+
+\subsection{Polarization of light}
+Electromagnetic waves are oscillations in the electromagnetic field with different oscillation directions which determine their polarization. Unpolarized light typically consists of many different polarization directions. \newline
+One possibility to get polarized light out of an unpolarized beam is letting it pass through a polarization filter, which only allows one specific polarization to pass through. Another way to get polarized light is to use a polarizing beam splitter cube (PBSC). Such a cube can reflect the s-polarized part of the light and transmit the p-polarized part of the beam. \newline
+
+
+The contrast $K$ of the interference pattern is defined as
+\begin{equation}
+  K = \frac{I_{\symup{max}}-I_{\symup{min}}}{I_{\symup{max}}+I_{\symup{min}}} \in [0,\, 1],
+  \label{eqn:1}
+\end{equation}
+with 0 being the minimal contrast and 1 the maximum. In general the intensity $I$ can be written as the superposition of two waves:
+\begin{equation}
+    I\propto \langle |E_1\cos(\omega t)+E_2\cos(\omega t +\delta)|^2 \rangle
+    \label{eqn:intensity}
+\end{equation}
+With $\omega$ being the wave frequency and $\delta$ the phase difference between both waves. So the $I_{\symup{max}$ and $I_{\symup{min}$ can be written as
+\begin{align*}
+    I_\text{max/min}\propto\frac{1}{2}(E_1^2+E_2^2)\pm E_1E_2.
+\end{align*}
+And the electric field depending on the polarization angle $\phi$ of the incoming beam is given by
+\begin{align*}
+    E_1&=\sqrt{E_1+E_2}\cos(\phi) \\
+    E_2&=\sqrt{E_1+E_2}\sin(\phi).
+\end{align*}
+Putting all of this together in \eqref{eqn:intensity} leads to 
+\begin{equation*}
+    I_\text{max/min}\propto (1\pm 2\sin(\phi)\cos(\phi)).
+\end{equation*}
+With all of this the contrast $K$ can be written depending on the polarization angle in the following way:
+\begin{equation}
+    K=2|\sin(\phi)\cos(\phi)|
+    \label{eqn:k2}
+\end{equation}
+
+\subsection{Refraction Indices}
+The refractive index $n$ of a material describes how the speed of light in a medium $v$ 
+changes compared to its speed in a vacuum $c$. It can be calculated by
+
+\begin{equation*}
+    n=\frac{v}{c}.
+\end{equation*}
+
+A way to calculate the number of intensity maxima and minima, $M$, for two interfering lightwaves with a phase difference of $\Delta\Phi$ is 
+\begin{equation}
+    M=\frac{\Delta\Phi}{2\pi}.
+    \label{eqn:m}
+\end{equation}
+This phase difference $\Delta\Phi$ can be calculated for glass ($D$ = Thickness of glass plates) by
+\begin{equation}
+    \Delta\Phi(\theta)=2\pi\frac{D}{\lambda_\text{vac}}\frac{n-1}{2n}\theta^2
+    \label{eqn:delta1}
+\end{equation}
+So inserting \eqref{eqn:delta1} in \eqref{eqn:m} leads to 
+\begin{equation}
+    M = \frac{D}{\lambda_\text{vac}}\frac{n-1}{n}\cdot 2\theta_0\theta.
+    \label{eqn:M_ana}
+\end{equation}
+And solving this equation for the refractive index $n$ yields
+\begin{equation}
+    n = \frac{2\theta_0\theta D}{2\theta_0\theta D - \lambda_\text{vac} M}.
+    \label{eqn:n}
+\end{equation}
+
+\noindent
+For gases the phase difference can be calculated by
+\begin{equation*}
+    \Delta\Phi=2\pi\frac{L}{\lambda_\text{vac}}(n-1).
+\end{equation*}
+Here $L$ is the length of the used gas chamber. Another way for the calculation of the refractive index of a gas depending on its pressure $p$ and temperature $T$ is the Lorentz-Lorenz law:
+\begin{equation}
+    \frac{n^2-1}{n^2+1}=\frac{Ap}{RT}
+    \label{eqn:lll}
+\end{equation}
+Here $R$ represents the universal gas constant and $A$ represents the molar refractivity of the gas.
