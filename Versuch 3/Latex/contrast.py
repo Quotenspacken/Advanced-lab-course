@@ -7,6 +7,12 @@ from uncertainties import ufloat
 from uncertainties.unumpy import (nominal_values as noms,
                                   std_devs as stds)
 
+def ensure_dir(path):
+    import os
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+
+ensure_dir("Versuch 3/Latex/build/contrast.pdf")
+
 # functions
 def contrast(I_min, I_max):
     return (I_max - I_min)/(I_max + I_min)
