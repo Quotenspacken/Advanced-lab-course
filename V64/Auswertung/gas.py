@@ -20,7 +20,7 @@ lamda = 632.99e-9 # wavelength of the laser (meter)
 T_0 = 273.15 + 21.7 # Raumtemperatur
 L = ufloat(0.1, 0.1e-3)
 
-p, m1, m2, m3 = np.genfromtxt("data/gas.dat", unpack = True)
+p, m1, m2, m3 = np.genfromtxt("V64/data/gas.dat", unpack = True)
 
 M = unp.uarray(np.mean([m1, m2, m3], axis = 0), np.std([m1, m2, m3], axis = 0))
 
