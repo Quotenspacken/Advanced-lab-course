@@ -1,1 +1,49 @@
-\section{Experimental Procedure}
+\section{Durchführung}
+Der Versuchsaufbau ist wie in Abbildung \ref{fig:aufbau} dargestellt aufgebaut.
+\begin{figure}[h!]               
+    \centering
+    \includegraphics[width=0.7\textwidth]{Abbildungen/Aufbau.png}
+    \caption{Schematischer Aufbau des Versuchs zur Messung der Myonenlebensdauer \cite{anleitung}.}
+    \label{fig:aufbau}
+\end{figure}
+Oben befindet sich ein 50 Litter großer Tank,
+der mit in Wasser gelöstem Szintillator gefüllt ist.ß09
+An den Enden sind zwei PMTs angebracht.
+Das Ausgegebene Signal der PMTs wird zuerst über die Diskriminatoren geleitet,
+die das Rauschen unterdrücken. 
+Anschließend werden die Signale in einem Koinzidenzgerät zusammengeführt.
+Dieses gibt nur einen Output, +
+wenn beide PMTs gleichzeitig ein Signal empfangen.
+Dies diehnt ebenfalls der Rauschunterdrückung.
+Denn PMTs können auch durch Umwelteinflüsse wie z.B. Wäreme Signale erzeugen.
+Da dies jedoch für beide PMTs gleichzeitig sehr unwahrscheinlich ist sind signale,
+welche durch beide PMTs gleichzeitig empfangen werden mit hoher Wahrscheinlichkeit echte Ereignisse.
+
+Zuletzt werden die Signale in einem Zeitmessgerät (TAC) ausgewertet.
+Dieses misst die Zeit zwischen dem Eintreffen des ersten Signals (Myon kommt in den Tank) und dem zweiten Signal (Myon zerfällt).
+Die Ausgabe des TACs wird in einem Multikanalanalysator gespeichert.
+
+
+
+\subsection{Kallibration des Multikanalanalysator}
+Zur Kallibration des Multikanalanalysators wird ein Doppelpulsgenerator verwendet.
+Dieser erzeugt zwei Signale mit einem einstellbaren Zeitabstand.
+Der Zeitabstand wird in 0.5 ns Schritten von 0 bis 55 ns variiert.  %Ich weiß nicht ob das so stimmt. Kannst du bitte nachsehen?
+Die jeweiligen Kanäle des Multikanalanalysators werden den Zeitabständen zugeordnet.   
+
+
+
+\subsection{Kallibration der Verzögerungsleitung}
+Um möglichst viele Signale zu erfassen,
+müssen die Signale der beiden PMTs zeitlich aufeinander abgestimmt werden.
+Denn wenn ein ionisierendes Teilchen den Tank nicht mittig durchquert,
+existiert eine Zeitdifferenz zwischen den Signalen der beiden PMTs.
+Um die Einstellung der Verzögerungsleitung zu optimieren,
+werden systematisch verschiedene Verzögerungszeiten an den Delays nach den PMTs eingestellt.
+Die Zählrate  wird für jede Einstellung 60 Sekunden lang gemessen.
+Die Verzögerungszeit mit der höchsten Zählrate wird für die eigentliche Messung verwendet
+
+
+\subsection{Messung der Myonenlebensdauer}
+Die Messung der Myonenlebensdauer erfolgt über einen Zeitraum von 24 Stunden.
+Die Daten werden im Multikanalanalysator gespeichert und anschließend ausgewertet.
