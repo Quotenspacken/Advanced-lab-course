@@ -1,7 +1,158 @@
-\section{Evaluation}
+\section{Auswertung}\label{sec:aus}
+Im folgenden Kapitel werden die Fehlerrechnungen und Ausgleichsrechnungen für die Auswertung der Messdaten mit \textit{numpy}~\cite{numpy} und \textit{scipy}~\cite{scipy} durchgeführt.
+
+\subsection{Kalibrierung des Multikanalanalysators}
+Für die Kalibrierung des Multikanalanalysators werden die zeitlichen Abstände am Doppelimpulsgenerator in $\SI{0.5}{\micro\second}$-Schritten von $\SI{1}{\micro\second}$ bis $\SI{5}{\micro\second}$ variiert.
+Die zu den am Doppelimpulsgenerator eingestellten zeitlichen Abständen $\Delta t$ erhaltenen Kanäle $K$ sind in \autoref{tab:kal} zu sehen.
+\begin{table}[h]
+    \centering
+    \caption{Am Doppelimpulsgenerator eingestellte Verzögerungen $\Delta t$ und dazu erhaltene Kanäle.}
+  \label{tab:kal}
+      \begin{tabular}{S S}
+        \toprule
+        {$\Delta t[\si{\micro\second}]$} & {Kanal}\\
+        \midrule
+1 & 39 \\
+1.5 & 62 \\
+2 & 85 \\
+2.5 & 108 \\
+3 & 131 \\
+3.5 & 154 \\
+4 & 177 \\
+4.5 & 200 \\
+5 & 223 \\
+        \bottomrule
+      \end{tabular}
+         \end{table}
+\noindent
+Diese Messwerte zu der Kalibrierung sind in \autoref{fig:kal} dargestellt. Zusätzlich ist eine Ausgleichsgerade zu sehen, die an die Messwerte angepasst wurde.
+\begin{figure}[h!]
+    \centering
+   % \includegraphics[scale= 0.7]{Abbildungen/kalibrierung.pdf}
+    \includegraphics[width=0.7\textwidth]{Abbildungen/kalibrierung.pdf}
+    \caption{Darstellung der am Doppelimpulsgenerator eingestellten Verzögerungen $\Delta t$ und dazu erhaltenen Kanalnummern mit Ausgleichsgeraden.}
+    \label{fig:kal}
+  \end{figure}
+\noindent
+Die Gesamtanzahl der Kanäle beträgt $512$ entsprechend der Darstellung in \autoref{fig:kal}.
+Die ermittelten Regressionsparameter der eingezeichneten Ausgleichsgeraden zur Kalibrierung lauten
+\begin{align*}
+   a &= \SI{21.74 \pm 0.0}{\nano\second} \\ 
+   b &= \SI{152.17 \pm 0}{\nano\second}.
+\end{align*}
 
 
+\subsection{Kalibrierung der Verzögerungsleitung}
+Für die Optimierung der Verzögerungszeit der Delays nach den Photomultipliern wird die Verzögerung variiert und jeweils die entsprechende Zählrate gemessen. Die Verzögerungszeiten werden dabei in $\SI{1}{\nano\second}$-Schritten von $\SI{-20}{\nano\second}$ bis $\SI{20}{\nano\second}$ verändert.
+Die so gemessenen Werte sind in \autoref{tab:verz} aufgelistet.
+\begin{table}[h]
+    \centering
+      \caption{Gemessene Impulszahl bei Variation der Verzögerung an
+den Delays nach den PMTs.}
+      \label{tab:verz}
+      \begin{tabular}{S S}
+        \toprule
+        {$\Delta t[\si{\nano\second}]$} & {$N[\si{\per\second}]$}\\
+        \midrule
+        -20 & 19 \\
+-19 & 22 \\
+-18 & 20 \\
+-17 & 27 \\
+-16 & 57 \\
+-15 & 27 \\
+-13.5 & 66 \\
+-13 & 97 \\
+-12 & 154 \\
+-11 & 270 \\
+-10 & 318 \\
+-9 & 446 \\
+-8 & 533 \\
+-7 & 319 \\
+-6 & 660 \\
+-5 & 842 \\
+-4 & 759 \\
+-3 & 913 \\
+-2 & 1163 \\
+-1 & 1191 \\
+0 & 1222 \\
+1 & 1183 \\
+2 & 1224 \\
+3 & 1132 \\
+4 & 987 \\
+5 & 844 \\
+6 & 757 \\
+7 & 648 \\
+8 & 481 \\
+9 & 395 \\
+10 & 289 \\
+11 & 206 \\
+12 & 143 \\
+13 & 99 \\
+14 & 57 \\ 
+15 &36 \\ 
+16&10 \\ 
+17&11 \\ 
+18&17 \\ 
+19&7 \\ 
+20&8 \\ 
+        \bottomrule
+      \end{tabular}
+    \end{table}
+\noindent
+Diese Messdaten sind in \autoref{fig:verz} dargestellt. Zusätzlich werden an die Daten links und rechts Ausgleichsgeraden und mittig ein Plateau angepasst. Diese Geraden und das Plateau sind ebenfalls in \autoref{fig:verz} zu sehen. Außerdem wurde der halbe Plateauwert eingezeichnet.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Abbildungen/verz.pdf}
+    \caption{Gemessene Impulszahl N bei Variation der Verzögerung $\Delta t$ an
+den Delays nach den PMTs mit Ausgleichsgeraden und Plateau.}
+    \label{fig:verz}
+  \end{figure}
+\noindent
+Aus den Ausgleichsrechnungen zu diesen Messwerten haben sich folgende Parameter ergeben:
+\begin{align*}
+  a_\text{links} &= 59.57 \pm 5.81\\
+  b_\text{links}&= 1006.95 \pm 71.18
+\end{align*}
+
+\begin{align*}
+  c_\text{Plateau} &= 1185.83 \pm 14.40
+\end{align*}
+
+\begin{align*}
+  a_\text{rechts} &= -71.03 \pm  6.37\\
+  b_\text{rechts}&= 1141.29 \pm 76.73
+\end{align*}
+\noindent
+Für die Halbwertsbreite dieser Messdaten wurde
+\begin{equation*}
+  t_{1/2}= \SI{14.7\pm 1.9}{\nano\second}
+\end{equation*} 
+bestimmt.
 
 
-
-
+\subsection{Bestimmung der mittleren Lebensdauer der Myonen}
+Zur Bestimmung der mittleren Lebensdauer der Myonen wurden die in \autoref{fig:myo} dargestellten Messwerte entsprechend einem Zerfallsgesetz einer Funktion der Form 
+\begin{equation}
+  N(t)=N_0\cdot e^{-\lambda t} \label{eqn:exp}
+\end{equation}
+angepasst.
+Die gesamte Dauer der Messung betrug $t_\text{ges}=\SI{90920}{\second}$.
+Es wurden sowohl am Anfang, als auch am Ende der Messdaten einige der Daten mit einem Messwert von N=0 für die Impulse entfernt.
+Die Anzahl der gemessenen Impulse abhängig von der Zeit für diese Messung sind in \autoref{fig:myo} dargestellt.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Abbildungen/myons.pdf}
+    \caption{Anzahl der gemessenen Impulse in Abhängigkeit der Zeit mit entsprechender Ausgleichsfunktion der Form von \autoref{eqn:exp} für die Bestimmung der mittleren Lebensdauer der Myonen.}
+    \label{fig:myo}
+  \end{figure}
+\noindent
+Die Ausgleichsrechnung entsprechend der Funktion aus \autoref{eqn:exp} ergibt für die Parameter
+\begin{align*}
+  N_0    &=\num{37.531 \pm 1.321} \\
+ \lambda &=\SI{0.506 \pm 0.024}{\per\second}.
+\end{align*}
+Aus $\lambda$ kann wie bereits in \autoref{sec:tau} beschrieben die mittlere Lebensdauer berechnet werden.
+Für die mittlere Lebensdauer der Myonen ergibt sich so
+\begin{equation*}
+  \tau_{\mu}=\SI{1.977 \pm 0.092}{\micro\second}.
+\end{equation*}
