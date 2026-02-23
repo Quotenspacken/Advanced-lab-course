@@ -1,0 +1,98 @@
+\section{Theorie}
+\subsection{Kosmische Myonen}
+Myonen sind Elementartteilchen, die zur Familie der Leptonen gehören.
+Sie besitzen eine negative elektrische Ladung von \(-1e\) und eine Ruheenergie von etwa \(105{,}7\,\mathrm{MeV}/c^2\), was ungefähr dem 207-fachen der Elektronenmasse entspricht.
+Neben Teilchenbeschleunigern ist die kosmische Strahlung eine bedeutende Quelle für Myonen.
+Hier entstehen aus hochenergetischen Primärteilchen, 
+die in die Erdatmosphäre eindringen, 
+durch Kollisionen mit Atomkernen sekundäre Teilchen wie Pionen.
+Pionen zerfallen in den meisten fällen in Myonen und Myon-Neutrinos gemäß der Reaktionen:
+\begin{align*}
+    \pi^+ &\rightarrow \mu^+ + \nu_\mu \quad \\
+    \pi^- &\rightarrow \mu^- + \bar{\nu}_\mu. 
+\end{align*}
+Anders als Elektronen sind Myonen instabil und zerfallen nach einer durchschnittlichen Lebensdauer von etwa \(2{,}2\,\mu\mathrm{s}\) \cite{griff}.
+Der hüfigste Zerfallskanal ist der in ein Elektron, ein Elektron-Antineutrino und ein Myon-Neutrino:
+\begin{equation*}
+    \mu^- \rightarrow e^- + \bar{\nu}_e + \nu_\mu.      
+\end{equation*}
+
+
+
+\section{Definition der Lebensdauer}
+Die Lebensdauer \(\tau\) eines instabilen Teilchens ist definiert als der Mittelwert der Zeitintervalle zwischen der Entstehung und dem Zerfall des Teilchens.
+Da jedes Teilchen eine individuelle Lebensdauer hat,
+ist dieser Prozess statistisch Verteilt.
+Diese Verteilung lässt sich durch die Zerfallskonstatnte \(\lambda\) charakterisieren, 
+die den Zerfall pro Zeiteinheit beschreibt.
+Im infinitesimalen Zeitintervall \(\mathrm{d}t\) ist die Wahrscheinlichkeit \(\mathrm{d}W\), dass ein Teilchen zerfällt, proportional zur Zerfallskonstanten und dem Beobachtungszeitintervall \(\mathrm{d}t\):
+\begin{equation*}
+    \mathrm{d}W = \lambda \, \mathrm{d}t.           
+\end{equation*}
+Da nun Teilchen unabhängig voneinander zerfallen und die Zerfallswahrscheinlichkeit nicht vom Alter des Teilchens abhängt, 
+ergibt sich für die Zahl
+\(N(t)\) der noch nicht zerfallenen Teilchen zum Zeitpunkt \(t\):
+\begin{equation}
+    dN = -N(t) \, \mathrm{d}W = -\lambda N(t) \, \mathrm{d}t.
+    \label{eq:dN}
+\end{equation}
+Wenn N eine große Zahl ist,
+dann lässt sich Gleichung \eqref{eq:dN} näherungsweise Integrieren.
+Bildet man zussätzlich daraus die Verteilungsfunktion der Lebensdauer $t$,
+so ergibt sie sich zu:
+\begin{equation}
+    \frac{dN(t)}{N_0} = -\lambda e^{-\lambda t} \, \mathrm{d}t,
+    \label{eq:verteilung}
+\end{equation}
+der Exponentielle Verteilung mit $N_0$ als der Gesamtzahl der betrachteten Teilchen.
+Um nun die charakteristische Lebensdauer \(\tau\) zu bestimmen,
+wird der Mittelwert aller möglichen Lebensdauern berechnet:
+\begin{equation}
+    \tau = \int_0^\infty \lambda t e^{-\lambda t} \, \mathrm{d}t = \frac{1}{\lambda}.
+    \label{eq:lebensdauer}
+\end{equation}  
+
+\subsection{Technik für Teilchenphysik}
+\subsection{Photomultiplier}
+Photomultiplier (PMTs) sind hochempfindliche Detektoren,
+die einzelne Photonen in elektrische Signale umwandeln und verstärken können.       
+Ein PMT besteht aus einer Photokathode,
+die Photonen absorbiert und Elektronen emittiert.
+Dabei tragend ist der sogenannte Photoeffekt.
+Die emittierten Elektronen werden dann durch eine Reihe von Dynoden beschleunigt,       
+die jeweils eine höhere Spannung haben als die vorherige.
+Wenn ein Elektron auf eine Dynode trifft,
+schlägt es mehrere Elektronen heraus,
+dadurch wird die anfangs geringe menge an Elektronen vervielfacht \cite{Leo}.
+
+\subsubsection{Szintillationsdetektoren}
+Szintillationsdetektoren sind Geräte, die ionisierende Strahlung durch die Emission von Lichtblitzen nachweisen.
+Sie bestehen aus einem Szintillationsmaterial, 
+das bei der Wechselwirkung mit geladenen Teilchen Licht emittiert.
+Dieses Licht kann dann von einem Photomultiplier (PMT) detektiert werden, 
+der die Lichtsignale in elektrische Signale umwandelt.
+
+Man unterscheidet zwischen organischen und anorganischen Szintillatoren,
+die für unterschiedliche Anwendungen optimiert sind.
+Organische Szintillatoren, wie z.B. Kunststoff- oder Flüssigszintillatoren,
+reagieren schnell auf ionisierende Strahlung und eigen sich daher gut für Experimente,
+die eine hohe Zeitauflösung erfordern.
+Anorganische Szintillatoren, wie z.B. Natriumiodid (NaI) oder Bismutgermanat (BGO),
+besitzen eine hohe Energieauflösung und sind besonders geeignet für die Untersuchung von hochenergetischen Teilchen\cite{Leo}.
+
+\subsection{Diskriminatoren}
+Diskriminatoren sind elektronische Bauelemente,
+die Signale nach ihrer Amplitude filtern.
+Sie geben nur dann ein Ausgangssignal ab,
+wenn das Eingangssignal einen bestimmten Schwellenwert überschreitet.
+Dadurch kann zum Beispiel das Rauschen unterdrückt werden.
+
+\subsection{Multikanal-Analysatoren}
+Multikanal-Analysatoren (MCA) sind Geräte,
+die Signale in verschiedene Kanäle aufteilen und analysieren können.    
+Sie werden häufig in der Teilchenphysik und Kernphysik eingesetzt,
+um die Energieverteilung von Teilchen zu messen.
+Ein MCA besteht aus einem Analog-Digital-Wandler (ADC),
+der das analoge Eingangssignal in digitale Werte umwandelt.
+Diese digitalen Werte werden dann in verschiedene Kanäle sortiert,
+die jeweils eine bestimmte Energie oder Amplitude repräsentieren \cite{Leo}.

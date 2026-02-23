@@ -17,6 +17,7 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{booktabs}
 \usepackage{longtable}
+\usepackage{adjustbox}
 
 % Math
 \usepackage{mathtools}
@@ -35,9 +36,10 @@
 \usepackage{bbding}
 
 % Bibliography and Glossary
-%\bibliography{v29.bib}
+%\bibliography{lit.bib}
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
-\addbibresource{v29.bib}
+\addbibresource{lit.bib}
+
 
 \usepackage{glossaries}
 
@@ -45,6 +47,9 @@
 
 % Physical Units and Numbers
 \usepackage[locale=DE]{siunitx}
+\sisetup{
+  separate-uncertainty = true
+}
 
 % References
 \usepackage{hyperref}
@@ -59,10 +64,10 @@
 }
 \publishers{TU Dortmund – Fakultät Physik}
 
-\subject{V...}
-\title{...}
+\subject{V18}
+\title{Germanium-Detektor}
 \date{%
-  Execution: October 27, 2025
+  Execution: February 02, 2026
   \hspace{3em}
   Submission: \today
 }
@@ -81,7 +86,8 @@
 \newpage
 %\input{content/anhang.tex}
 %\newpage
-\printbibliography{}
+
+\printbibliography
 
 
 \end{document}
