@@ -81,7 +81,7 @@ def gaussian_fit_peaks(test_ind,data):
 ### Background spectrum ###
 ############################
 bkg = np.genfromtxt('V18/data/bkg.txt', unpack=True)
-plot_spectrum(bkg, 'Hintergrund_Spektrum')
+plot_spectrum(bkg, 'Hintergrund Spektrum')
 
 #############################
 ### Spektrum von Europium ###
