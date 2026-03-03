@@ -4,7 +4,7 @@ To calibrate the detector,
 the spectrum of a $^{152}$Eu source is recorded. 
 The measurement is performed over a duration of 120 minutes, 
 yielding the spectrum shown in \autoref{fig:eu_spectrum}. 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{../build/Europium_Spektrum.pdf}
     \caption{Spectrum of the $^{152}$Eu source. The highest peaks are labeled with a red cross. The background spectrum has already been subtracted.}
@@ -15,9 +15,9 @@ a background measurement is conducted over 24 hours.
 To obtain the net counts, 
 the background spectrum is first scaled to the same measurement time as the $^{152}$Eu spectrum and subsequently subtracted. 
 The recorded background spectrum is shown in \autoref{fig:background_spectrum}.
-\begin{figure}      
+\begin{figure}[h!]      
     \centering
-    \includegraphics[width=0.7\textwidth]{../build/Ba_Spektrum.pdf}
+    \includegraphics[width=0.7\textwidth]{../build/Hintergrund_Spektrum.pdf}
     \caption{Background spectrum measured over 24 hours.}
     \label{fig:background_spectrum} 
 \end{figure}
@@ -41,7 +41,7 @@ The resulting fit parameters are
 	\beta  & =  -0.8742 \pm 0.0004.
 \end{align*}
 The calibrated spectrum obtained using this fit is shown in \autoref{fig:eu_calibration}.
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{../build/Europium_Spektrum_konfiguriert.pdf}
     \caption{Spectrum of the $^{152}$Eu source with the energy calibration applied.The energies of the characteristic peaks from the literature are plotted on the x-axis \cite{laraweb}.}
@@ -92,7 +92,7 @@ The integral of the Gaussian component yields the peak content $N$, which is sub
 The measured full energy detection probability as a function of energy is shown in \autoref{fig:full_energy}. 
 To parameterize the energy dependence, a power function is fitted to the data. 
 The fitted curve is indicated by the red line and provides a continuous description of the detector efficiency over the considered energy range.
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{../build/Effizienz.pdf}
     \caption{Full energy detection probability $Q$ as a function of energy. The fit of the power function is shown as a red line.}
@@ -105,7 +105,7 @@ The fitted curve is indicated by the red line and provides a continuous descript
 A $^{137}\text{Cs}$ probe was measured over a Time period of $t=\SI{14400}{\second}$.
 The resulting spectrum is shown in \autoref{fig:cs_spectrum}.
 With red crosses, from left to right, the x-ray peak, the backscattered peak, the Compton edge, and the full energy peak are marked.
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{../build/Cs_Spektrum.pdf}
     \caption{Spectrum of the $^{137}\text{Cs}$ source. The background spectrum has already been subtracted.}
@@ -113,7 +113,7 @@ With red crosses, from left to right, the x-ray peak, the backscattered peak, th
 \end{figure}
 A scaled normal distribution is fitted to the full energy peaks to determine the yield. 
 The results is displayed in Figure~\ref{fig:csfit}.
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{../build/Cs_full_peak.pdf}
     \caption{Fit of a scaled normal distribution to the full energy peak of the $^{137}\text{Cs}$ spectrum.}
@@ -171,7 +171,7 @@ The backscatter peak is estimated to be at $E_{\gamma} = \SI{190.96 \pm 0.0004}{
 To estimate the event count in the compton continuum, 
 a linear fit is carried out in the region between the backscatter peak and the compton edge.
 The fit is displayed in Figure~\ref{fig:comptonfit}.
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.7]{../build/Caesium-Compton-Fit.pdf}
 	\caption{Linear Fit of the compton continuum.}
@@ -198,7 +198,7 @@ This yield of the compton continuum as estimated by this fit amounts to
 \subsection{Gamma spectrum of Barium}
 The spectrum of a $^{133}\text{Ba}$ source is measured over a time period of $t = \SI{7200}{\second}$.
 The resulting spectrum is shown in \autoref{fig:ba_spectrum}.
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\textwidth]{../build/Ba_Spektrum.pdf}
     \caption{Spectrum of the $^{133}\text{Ba}$ source. The background spectrum has already been subtracted.}
@@ -257,54 +257,19 @@ The measured spectrum is displayed in Figure~\ref{fig:urcomp}.
 Through comparing the peaks of the spectra, with the peaks of the Background spectrum in \autoref{fig:background_spectrum}, 
 the ones which likely originate from the  probe can be identified. 
 These peaks are shown in Figure~\ref{fig:urcomp}.
-\begin{figure}[ht]
+\begin{figure}[h!]
 	\centering
-	\begin{adjustbox}{width=1.4\textwidth, center}
+	\begin{adjustbox}{width=0.7\textwidth, center}
 		\includegraphics[scale=0.3]{../build/Uran-Uran-Peaks.pdf}
 	\end{adjustbox}
 	\caption{Spectrum of the uranium measurement, with background peaks removed.}
 	\label{fig:urcomp}
 \end{figure}
 \noindent
-The exact channels of the peaks of the uranium measurement and the background measurement are given in
-Table~\ref{tab:urcomp}. A normal distribution is fitted to the remaining peaks to estimate the yield.
-\begin{table}[ht]
-	\centering
-	\caption{Channels of peaks in the background and uranium spectrum.}
-	\label{tab:urcomp}
-	\sisetup{table-format=4.0}
-	\begin{tabular}{S[table-format=2.0] S S}
-		\toprule {Index} & {$C_{\text{Ur}}$} & {$C_{\text{B}}$} \\
-		\midrule
-		0                & 60                & 59               \\
-		1                & 312               & {-}              \\
-		2                & 379               & 370              \\
-		3                & 428               & {-}              \\
-		4                & 453               & 453              \\
-		5                & 543               & {-}              \\
-		6                & 701               & {-}              \\
-		7                & 750               & {-}              \\
-		8                & 904               & 904              \\
-		9                & 1144              & {-}              \\
-		10               & 1173              & {-}              \\
-		11               & 1256              & {-}              \\
-		12               & 1303              & {-}              \\
-		13               & 1430              & 1430             \\
-		14               & 1703              & 1703             \\
-		15               & 2943              & 2946             \\
-		16               & 3213              & 3196             \\
-		17               & 3707              & {-}              \\
-		18               & 3889              & {-}              \\
-		19               & 4508              & {-}              \\
-		20               & 5406              & 5410             \\
-		21               & 5974              & {-}              \\
-		22               & 6647              & {-}              \\
-		\bottomrule
-	\end{tabular}
-\end{table}
+A normal distribution is fitted to the remaining peaks to estimate the yield.
 The emission lines are matched to possible nuclides from the literature~\cite{laraweb}. 
 A possible matching is given in Table~\ref{tab:urmatching}.
-\begin{table}[ht]
+\begin{table}[h!]
 	\centering
 	\caption{Matching of peaks of the unknown uranium sources´ spectrum.}
 	\label{tab:urmatching}
@@ -339,7 +304,7 @@ daughter nuclides $^{226}\text{Ra}$ and $^{214}\text{Pb}$, as these would inhibi
 all measured emission lines which could be attributed to the source. For each nuclide
 and peak the activity is calculated using the literature values given in Table~\ref{tab:urmatching}.
 The resulting activitys are given in Table~\ref{tab:urresults}.
-\begin{table}[ht]
+\begin{table}[h!]
 	\centering
 	\caption{Results of the activity calculation based on the aforementioned peaks in the measured spectrum, ordered by presumed nuclide.}
 	\label{tab:urresults}
