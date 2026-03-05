@@ -2,7 +2,7 @@
 \subsection{Energy Calibration with Europium}
 To calibrate the detector, 
 the spectrum of a $^{152}$Eu source is recorded. 
-The measurement is performed over a duration of 120 minutes, 
+The measurement is performed over a duration of about 120 minutes, 
 yielding the spectrum shown in \autoref{fig:eu_spectrum}. 
 \begin{figure}[h!]
     \centering
@@ -40,6 +40,13 @@ The resulting fit parameters are
 	\alpha & =  0.1191 \pm 0.0000      \\
 	\beta  & =  -0.8742 \pm 0.0004.
 \end{align*}
+The fit is displayed in \autoref{fig:eu_calibration_fit}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{../build/Eu-Energie_linear.pdf}
+	\caption{Linear fit of the energy calibration. The identified peaks are shown as blue dots, while the fitted line is shown in red.}
+	\label{fig:eu_calibration_fit}
+\end{figure}
 The calibrated spectrum obtained using this fit is shown in \autoref{fig:eu_calibration}.
 \begin{figure}[h!]
     \centering
@@ -101,8 +108,8 @@ The fitted curve is indicated by the red line and provides a continuous descript
 
 
 
-\subsection{Gamma spectrum of Ceasium}
-A $^{137}\text{Cs}$ probe was measured over a Time period of $t=\SI{14400}{\second}$.
+\subsection{Gamma spectrum of Cesium}
+A $^{137}\text{Cs}$ probe was measured over a time period of about $t=\SI{14400}{\second}$.
 The resulting spectrum is shown in \autoref{fig:cs_spectrum}.
 With red crosses, from left to right, the x-ray peak, the backscattered peak, the Compton edge, and the full energy peak are marked.
 \begin{figure}[h!]
@@ -121,13 +128,13 @@ The results is displayed in Figure~\ref{fig:csfit}.
 \end{figure}
 These fits include a further background estimation parameter $b$\,; the resulting distribution is given by
 \begin{equation}
-	g(x) = s \cdot \frac{1}{\sqrt{2 \pi} \sigma} \exp{\left( -\frac{1}{2} \frac{(x - \mu)^{2}}{\sigma} \right)} + b.
+	g(x) = s \cdot \frac{1}{\sqrt{2 \pi} \sigma} \exp{\left( -\frac{1}{2} \frac{(x - \mu)^{2}}{\sigma^2} \right)} + b.
 	\label{eqn:fitplus}
 \end{equation}
 The fit parameters including the number of events of each peak is given in Table~\ref{tab:csfitparams}; the yield of each peak is given by the scale factor $s$.
 \begin{table}[ht]
 	\centering
-	\caption{Fit parameters of the photo peaks of the $^{137}\text{Cs}$ spectrum with more than $\SI{150}{\kilo\electronvolt}$.}
+	\caption{Fit parameters of the photo peak of the $^{137}\text{Cs}$ spectrum with more than $\SI{150}{\kilo\electronvolt}$.}
 	\label{tab:csfitparams}
 	\sisetup{table-format=3.5}
 	\begin{tabular}{S S[table-format=4.3] S[table-format=2.0] S[table-format=4.3] S[table-format=2.3]}
@@ -137,7 +144,7 @@ The fit parameters including the number of events of each peak is given in Table
 		\bottomrule
 	\end{tabular}
 \end{table}
-The full width at half maximum and full width at tenth maximum of the photo peak of the $^{137}\text{Cs}$ spectrum are estimated. 
+The full width at half maximum (FWHM) and full width at tenth maximum (FWTM) of the photo peak of the $^{137}\text{Cs}$ spectrum are estimated. 
 To do this, the fitted normal distribution is utilized. 
 This is also displayed in \autoref{fig:csfit}.
 
@@ -148,7 +155,7 @@ The full width at half maximum and the full width at tenth maximum amount to
 \end{align}
 The ratio of the two is given by
 \begin{equation}
-	\frac{\text{FWHM}}{\text{FWTM}} = \SI{0.55 \pm 0.0004}{\kilo\electronvolt}.
+	\frac{\text{FWHM}}{\text{FWTM}} = 0.55 \pm 0.0004.
 \end{equation}
 The energy of the photoelectric peak is determined from the fit to
 \begin{equation}
@@ -185,13 +192,41 @@ The function utilized here is given in Equation
 \end{equation}
 The parameters are estimated to the values
 \begin{align}
-	\alpha & = \num{0.008 \pm 0.000}    \\
+	\alpha & = \num{0.008 \pm 0.000004}    \\
 	\beta  & = \num{1.0 \pm 0.8}.
 \end{align}
 This yield of the compton continuum as estimated by this fit amounts to
 \begin{equation}
-	N = \num{15498.84830 \pm 0.00000}.
+	N = \num{15498.84830 \pm 0.000002}.
 \end{equation}
+
+In the final step of this analysis, 
+the content of the Compton continuum
+and the full-energy peak is compared with the absorption probabilities of the Compton and photoelectric effects. 
+For this purpose, 
+the formula
+\begin{equation}
+    p = 1 - \exp\left(-\mu l\right)
+    \label{eq:absorption_probability}
+\end{equation}
+is used, 
+where $l = \SI{3.9}{\centi\meter}$ is the detector length and $\mu$ is the corresponding absorption coefficient. 
+The resulting values are
+\begin{align}
+    \mu_\text{Compton} &= \SI{0.38(3)}{\per\centi\meter}, &
+    p_\text{Compton} &= \SI{74(7)}{\percent}, \notag\\
+    \mu_\text{Photo} &= \SI{0.002(3)}{\per\centi\meter}, &
+    p_\text{Photo} &= \SI{2.7(1)}{\percent}.
+\end{align}
+Next, the entries of the individual energies up to the Compton edge are summed.
+For the full-energy peak, 
+a window of \SI{21}{\kilo\electronvolt} (from minimumto minimum) is used before and after the maximum to determine the peak content.
+From this, 
+the counts are determined as
+\begin{align}
+    Z_\text{Compton} &= \num{9.0(8)e4}, &
+    Z_\text{Full} &= \num{3.39(7)e4}.
+\end{align}
 
 
 
@@ -230,7 +265,7 @@ The full energy Equation~\eqref{eqn:fullenergy} is rearranged to be able to comp
 		\multicolumn{2}{c}{$E_i$\;/\;\si{\kilo\electronvolt}} &
 		\multicolumn{2}{c}{$A_i$\;/\;\si{\becquerel}} \\
 	\midrule
-		 34.1 &  0.000 &  0.000 &    72.96  &  0.01 &    0 &  0 \\
+		 7.13 &  0.163 &  0.007 &    274.97 &  0.01 &  909 &  19 \\
 		 18.3 &  0.280 &  0.005 &    296.16 &  0.00 &  1096&  25 \\
 		 62.1 &  0.228 &  0.002 &    349.66 &  0.00 &  964 &  21 \\
 		 8.9  &  0.163 &  0.007 &    377.58 &  0.00 &  902 &  21 \\
@@ -245,7 +280,7 @@ was then used to determine the activity of the sample on the day of measurement.
 From the Gaussian parameters and the values calculated from them in Table \ref{tab:aktivitaet_ba}, 
 the mean activity was determined by forming a mean value of
 \begin{align*}
-  A = \SI{987(23)} {\becquerel}.
+  A = \SI{967(21)} {\becquerel}.
 \end{align*}
 
 
@@ -259,7 +294,7 @@ the ones which likely originate from the  probe can be identified.
 These peaks are shown in Figure~\ref{fig:urcomp}.
 \begin{figure}[h!]
 	\centering
-	\begin{adjustbox}{width=0.7\textwidth, center}
+	\begin{adjustbox}{width=1.3\textwidth, center}
 		\includegraphics[scale=0.3]{../build/Uran-Uran-Peaks.pdf}
 	\end{adjustbox}
 	\caption{Spectrum of the uranium measurement, with background peaks removed.}
@@ -303,7 +338,7 @@ The unknown source likely consists of $^{233}\text{U}$, $^{214}\text{Bi}$ and it
 daughter nuclides $^{226}\text{Ra}$ and $^{214}\text{Pb}$, as these would inhibit
 all measured emission lines which could be attributed to the source. For each nuclide
 and peak the activity is calculated using the literature values given in Table~\ref{tab:urmatching}.
-The resulting activitys are given in Table~\ref{tab:urresults}.
+The resulting activities are given in Table~\ref{tab:urresults}.
 \begin{table}[h!]
 	\centering
 	\caption{Results of the activity calculation based on the aforementioned peaks in the measured spectrum, ordered by presumed nuclide.}

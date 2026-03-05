@@ -19,6 +19,58 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
+    \entry{LNT}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=2fc2287136d6b97accd3b3a12571558f}{%
+           family={Nuclear\bibnamedelima Technologies},
+           familyi={N\bibinitperiod\bibinitdelim T\bibinitperiod},
+           given={Laboratory},
+           giveni={L\bibinitperiod},
+           prefix={for},
+           prefixi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{2fc2287136d6b97accd3b3a12571558f}
+      \strng{fullhash}{2fc2287136d6b97accd3b3a12571558f}
+      \strng{fullhashraw}{2fc2287136d6b97accd3b3a12571558f}
+      \strng{bibnamehash}{2fc2287136d6b97accd3b3a12571558f}
+      \strng{authorbibnamehash}{2fc2287136d6b97accd3b3a12571558f}
+      \strng{authornamehash}{2fc2287136d6b97accd3b3a12571558f}
+      \strng{authorfullhash}{2fc2287136d6b97accd3b3a12571558f}
+      \strng{authorfullhashraw}{2fc2287136d6b97accd3b3a12571558f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Interaction of $\gamma$-rays with matter}
+      \field{urlday}{22}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.fe.infn.it/radioactivity/educational/detection.html
+      \endverb
+      \verb{url}
+      \verb https://www.fe.infn.it/radioactivity/educational/detection.html
+      \endverb
+    \endentry
+    \entry{spectrum}{online}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{title}{Gamma-spectrum of $^{137}\text{Cs}$}
+      \field{urlday}{22}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.leifiphysik.de/kern-teilchenphysik/radioaktivitaet-fortfuehrung/versuche/gammaspektrum-von-cs-137
+      \endverb
+      \verb{url}
+      \verb https://www.leifiphysik.de/kern-teilchenphysik/radioaktivitaet-fortfuehrung/versuche/gammaspektrum-von-cs-137
+      \endverb
+    \endentry
     \entry{laraweb}{online}{}{}
       \name{author}{1}{}{%
         {{hash=f0be44ab331f92cc420755b5eaf02ba0}{%
@@ -35,14 +87,14 @@
       \strng{authornamehash}{f0be44ab331f92cc420755b5eaf02ba0}
       \strng{authorfullhash}{f0be44ab331f92cc420755b5eaf02ba0}
       \strng{authorfullhashraw}{f0be44ab331f92cc420755b5eaf02ba0}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Library for gamma and alpha emissions}
-      \field{urlday}{14}
-      \field{urlmonth}{12}
-      \field{urlyear}{2023}
+      \field{urlday}{22}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
       \field{year}{2004}
       \field{urldateera}{ce}
       \verb{urlraw}
@@ -51,6 +103,30 @@
       \verb{url}
       \verb http://www.lnhb.fr/Laraweb/index.php
       \endverb
+    \endentry
+    \entry{V18}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=e04aa7fc361a1b2e68fbed296f71b9ff}{%
+           family={Physics},
+           familyi={P\bibinitperiod},
+           given={TU\bibnamedelima Dortmund.\bibnamedelimi Faculty},
+           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim F\bibinitperiod},
+           prefix={of},
+           prefixi={o\bibinitperiod}}}%
+      }
+      \strng{namehash}{e04aa7fc361a1b2e68fbed296f71b9ff}
+      \strng{fullhash}{e04aa7fc361a1b2e68fbed296f71b9ff}
+      \strng{fullhashraw}{e04aa7fc361a1b2e68fbed296f71b9ff}
+      \strng{bibnamehash}{e04aa7fc361a1b2e68fbed296f71b9ff}
+      \strng{authorbibnamehash}{e04aa7fc361a1b2e68fbed296f71b9ff}
+      \strng{authornamehash}{e04aa7fc361a1b2e68fbed296f71b9ff}
+      \strng{authorfullhash}{e04aa7fc361a1b2e68fbed296f71b9ff}
+      \strng{authorfullhashraw}{e04aa7fc361a1b2e68fbed296f71b9ff}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Experimental instructions for V18: Germanium detector in \texorpdfstring{$\gamma$}{gamma}-spectroscopy}
     \endentry
     \entry{scipy}{article}{}{}
       \name{author}{35}{}{%
@@ -236,8 +312,8 @@
       \strng{authornamehash}{f252038edd7f112d75da3bf0c1edecbc}
       \strng{authorfullhash}{371a3f5cdbab4f8c68cab2e17d157950}
       \strng{authorfullhashraw}{371a3f5cdbab4f8c68cab2e17d157950}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Nature Methods}

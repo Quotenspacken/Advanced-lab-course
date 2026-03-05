@@ -29,8 +29,8 @@ def plot_spectrum(data, title, peaks=None, m=1, b=0):
     if peaks is not None:
         plt.plot(m*x_channels[peaks]+b, data[peaks], "x", color='red')
     plt.title(title)
-    plt.xlabel(r'Energie $E$ (keV)')
-    plt.ylabel(r'Zählrate $N$')
+    plt.xlabel(r'Energy $E$ (keV)')
+    plt.ylabel(r'Count rate $N$')
     plt.savefig(f'V18/build/{title}.pdf')
     plt.yscale('log')
     plt.savefig(f'V18/build/{title}_log.pdf')
@@ -81,7 +81,17 @@ def gaussian_fit_peaks(test_ind,data):
 ### Background spectrum ###
 ############################
 bkg = np.genfromtxt('V18/data/bkg.txt', unpack=True)
-plot_spectrum(bkg, 'Hintergrund Spektrum')
+
+x_channels = np.linspace(0, len(bkg), len(bkg))
+plt.bar(1 *x_channels , bkg)  
+  
+plt.title('Background spectrum')
+plt.xlabel(r'Bin-number')
+plt.ylabel(r'Count rate $N$')
+plt.savefig(f'V18/build/Hintergrund Spektrum.pdf')
+plt.yscale('log')
+plt.savefig(f'V18/build/Hintergrund Spektrum_log.pdf')
+plt.clf()
 
 #############################
 ### Spektrum von Europium ###
@@ -102,9 +112,9 @@ print(peaks)
 
 plt.bar(Eu_channels, subtract_background(Eu, bkg, 7200, 86400))  
 plt.plot(Eu_channels[peaks], Eu_bereinigt[peaks], "x", color='red')                                           
-plt.title('Europium-Spektrum')
-plt.xlabel(r'Bin-Nummer')
-plt.ylabel(r'Zählrate $N$')
+plt.title('Euphorium spectrum')
+plt.xlabel(r'Bin-number')
+plt.ylabel(r'Count rate $N$')
 plt.savefig(f'V18/build/Europium_Spektrum.pdf')
 plt.yscale('log')
 plt.savefig(f'V18/build/Europium_Spektrum_log.pdf')
@@ -114,11 +124,22 @@ plt.clf()
 m,b = np.polyfit(peaks, E, 1)
 print(f'Kalibrierung: E = {m:.4f} * Bin + {b:.4f}')
 
+plt.scatter(peaks, E, label='Peaks')
+plt.plot(Eu_channels, lin(Eu_channels, m, b), color='red', label=f'Fit: E = {m:.4f} * Bin + {b:.4f}')
+plt.xlabel('Bin-Nummer')        
+plt.ylabel('Energie (keV)')
+plt.title('Energie-Kalibrierung')
+plt.legend()
+plt.grid()
+plt.savefig(f'V18/build/Eu-Energie_linear.pdf')
+plt.clf()
+
 plt.bar(m*Eu_channels+b, subtract_background(Eu, bkg, 7200, 86400))
 plt.xticks(m*peaks+b, rotation=45)                                             
 plt.title('Europium-Spektrum')
-plt.xlabel(r'Energie $E$ (keV)')
-plt.ylabel(r'Zählrate $N$')
+plt.xlabel(r'Energy $E$ (keV)')
+plt.ylabel(r'Count rate $N$')
+plt.tight_layout()
 plt.savefig(f'V18/build/Europium_Spektrum_konfiguriert.pdf')
 plt.yscale('log')
 plt.savefig(f'V18/build/Europium_Spektrum_konfiguriert_log.pdf')
@@ -148,10 +169,10 @@ efficiency = (4*np.pi*Eu[peaks]) / (omega * A_measure * measurement_time * I)
 
 popt, _ = curve_fit(power_law, E, efficiency)
 
-plt.scatter(E, efficiency, label='Messwerte')
+plt.scatter(E, efficiency, label='measured values')
 E_fit = np.linspace(min(E), max(E), 100)
 plt.plot(E_fit, power_law(E_fit, *popt), color='red', label=f'Fit: a={popt[0]:.2e}, b={popt[1]:.2f}')
-plt.xlabel('Energie (keV)')
+plt.xlabel('Energy (keV)')
 plt.ylabel('Q(E)')
 plt.legend()
 plt.grid()
@@ -213,8 +234,8 @@ plt.plot(lin(np.arange(a,c+1),*params), gauss(lin(np.arange(a,c+1),*params), *pa
 plt.errorbar(lin(np.arange(a,c+1),*params), noms(Z_3), yerr=sdevs(Z_3), fillstyle= None, fmt=' x', label='Daten')
 plt.axhline(y=0.5*Cs[peaks[3]]*noms(sigma_fit)*np.sqrt(2*np.pi), xmin = 0.31, xmax = 0.675, color='g',linestyle='dashed', label=' half-value width')
 plt.axhline(y=0.1*Cs[peaks[3]]*noms(sigma_fit)*np.sqrt(2*np.pi), xmin = 0.158, xmax = 0.81,color='r',linestyle='dashed', label='tenth-value width')
-plt.ylabel('Peakhöhe $Z$')
-plt.xlabel('Energie $E$/keV')
+plt.ylabel('peak height $Z$')
+plt.xlabel('Energy (keV)')
 plt.legend(loc='best')
 plt.grid()
 plt.savefig('V18/build/Cs_full_peak.pdf')
@@ -268,6 +289,20 @@ abs_wahrsch_comp = 1-unp.exp(-mu_comp*l)
 print(f'Die absolute Wahrscheinlichkeit eine Vollenergiepeaks liegt bei: {abs_wahrsch_ph} Prozent')
 print(f'Die absolute Wahrscheinlichkeit eine Comptonpeaks liegt bei: {abs_wahrsch_comp} Prozent\n')
 
+inhalt_photo = ufloat(sum(Cs[1649-13:1649+9]*noms(sigma_fit)*np.sqrt(2*np.pi)), sum(np.sqrt(Cs[1649-13:1649+9]*noms(sigma_fit)*np.sqrt(2*np.pi))))
+print('\nInhalt des Photo-Peaks: ', inhalt_photo)
+
+min_ind_comp = 53
+inhalt_comp = ufloat(sum(Cs[min_ind_comp:peaks[3]]*noms(sigma_fit)*np.sqrt(2*np.pi)), sum(np.sqrt(Cs[min_ind_comp:peaks[3]]*noms(sigma_fit)*np.sqrt(2*np.pi))))
+print(f'Der Inhalt des Compton-Kontinuums, liegt bei: {inhalt_comp}')
+
+mu_ph = ufloat(0.007, 0.003) #in cm^-1
+mu_comp = ufloat(0.35, 0.07)
+l=3.9
+abs_wahrsch_ph = 1-unp.exp(-mu_ph*l)
+abs_wahrsch_comp = 1-unp.exp(-mu_comp*l)
+print(f'Die absolute Wahrscheinlichkeit eine Vollenergiepeaks liegt bei: {abs_wahrsch_ph} Prozent')
+print(f'Die absolute Wahrscheinlichkeit eine Comptonpeaks liegt bei: {abs_wahrsch_comp} Prozent\n')
 
 
 ##########################
